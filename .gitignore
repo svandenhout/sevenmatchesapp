@@ -8,3 +8,7 @@ tmp
 .project
 .settings
 Thumbs.db
+
+# Build folder and log file
+build/
+build.log
