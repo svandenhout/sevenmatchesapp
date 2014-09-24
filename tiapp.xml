@@ -2,10 +2,10 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>nl.sevenmatches</id>
     <name>TrainersApp</name>
-    <version>1.0</version>
+    <version>0.01</version>
     <publisher>stevenvandenhout</publisher>
     <url>http://sevenmatches.com</url>
-    <description/>
+    <description>undefined</description>
     <copyright>2014 by stevenvandenhout</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>

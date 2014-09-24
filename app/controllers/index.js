@@ -1,4 +1,4 @@
-function doClick(e) {
+function login(e) {
     alert($.label.text);
 }
 

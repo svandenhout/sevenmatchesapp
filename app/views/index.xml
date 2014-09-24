@@ -1,5 +1,8 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
+		<ImageView class="smLogo" />
+		<TextField id="email"></TextField>
+		<TextField id="password"></TextField>
+		<Button id="login" onClick="login"></Button>
 	</Window>
 </Alloy>
