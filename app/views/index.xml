@@ -3,6 +3,6 @@
 		<ImageView class="smLogo" />
 		<TextField id="email"></TextField>
 		<TextField id="password"></TextField>
-		<Button id="login" onClick="login"></Button>
+		<Button id="login" onClick="login" title="Login"></Button>
 	</Window>
 </Alloy>
