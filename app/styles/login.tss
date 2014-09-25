@@ -1,0 +1,46 @@
+".container": {
+  backgroundColor:"white"
+},
+
+".smLogo": {
+  image: "/images/sevenmatches-logo.png",
+  width: 186,
+  height: 53,
+  top: 100
+},
+
+"#email": {
+  color:"#336699",
+  top:180,
+  left:10,
+  width:300,
+  height:40,
+  hintText:"Email",
+  borderColor: "#CCCCCC",
+  borderWidth: 2,
+  borderRadius: 5,
+},
+
+"#password": {
+  color:"#336699",
+  top:240,
+  left:10,
+  width:300,
+  height:40,
+  hintText:"Password",
+  passwordMask:true,
+  borderColor: "#CCCCCC",
+  borderWidth: 2,
+  borderRadius: 5,
+},
+
+"#login": {
+  color: "#336699",
+  title: "Login",
+  top: 300,
+  width: 90,
+  height: 45,
+  borderColor: "#CCCCCC",
+  borderWidth: 2,
+  borderRadius: 5
+}
