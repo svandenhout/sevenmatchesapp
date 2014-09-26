@@ -1,4 +1,4 @@
-".container": {
+"#login": {
   backgroundColor:"white"
 },
 
@@ -9,7 +9,7 @@
   top: 100
 },
 
-"#email": {
+"#emailInput": {
   color:"#336699",
   top:180,
   left:10,
@@ -21,7 +21,7 @@
   borderRadius: 5,
 },
 
-"#password": {
+"#passwordInput": {
   color:"#336699",
   top:240,
   left:10,
@@ -34,7 +34,7 @@
   borderRadius: 5,
 },
 
-"#login": {
+"#loginBtn": {
   color: "#336699",
   title: "Login",
   top: 300,

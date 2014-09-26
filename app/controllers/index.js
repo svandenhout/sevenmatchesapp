@@ -1,7 +1,7 @@
 var token = Ti.App.Properties.getString("access_token", "false");
 
 if(token === "false") {
-  console.log($.login);
+  Alloy.createController("login").getView("login").open();
 }else {
   $.index.open();
 }
