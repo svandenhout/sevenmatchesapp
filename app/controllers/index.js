@@ -1,18 +1,21 @@
-var loginReq = Titanium.Network.createHTTPClient();
-
-loginReq.onLoad = function(e) {
-  var json = this.responseText;
-  var response = JSON.parse(json);
-  if (response.logged == true) {
-    alert("Token = " + response);
-  }else {
-    alert("AWFULL");
+var loginReq = Titanium.Network.createHTTPClient({
+  onLoad: function(e) {
+    var json = this.responseText;
+    var response = JSON.parse(json);
+    if (response) {
+      alert("Token = " + response);
+    }else {
+      alert("AWFULL");
+    }
   }
-};
+});
 
 function login(e) {
   if($.email.value != '' && $.password.value != '') {
-    loginReq.open("POST","http://sevenmatchestest.herokuapp.com/api/oauth/token");
+    loginReq.open(
+      "POST",
+      "http://sevenmatchestest.herokuapp.com/api/oauth/token"
+    );
 
     var params = {
       grant_type: "password",
