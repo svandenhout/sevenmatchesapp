@@ -1,0 +1,8 @@
+<Alloy>
+  <Window id="login">
+    <ImageView class="smLogo" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" />
+    <TextField id="emailInput" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+    <TextField id="passwordInput" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+    <Button id="loginBtn" onClick="login" title="Login"></Button>
+  </Window>
+</Alloy>

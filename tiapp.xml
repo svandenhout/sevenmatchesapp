@@ -2,7 +2,7 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>nl.sevenmatches</id>
     <name>TrainersApp</name>
-    <version>0.01</version>
+    <version>1.00</version>
     <publisher>stevenvandenhout</publisher>
     <url>http://sevenmatches.com</url>
     <description>undefined</description>
@@ -55,7 +55,7 @@
         <target device="iphone">true</target>
         <target device="mobileweb">false</target>
     </deployment-targets>
-    <sdk-version>3.3.0.GA</sdk-version>
+    <sdk-version>3.4.0.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

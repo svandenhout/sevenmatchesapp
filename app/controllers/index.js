@@ -1,34 +1,7 @@
-var loginReq = Titanium.Network.createHTTPClient({
-  onLoad: function(e) {
-    var json = this.responseText;
-    var response = JSON.parse(json);
-    if (response) {
-      alert("Token = " + response);
-    }else {
-      alert("AWFULL");
-    }
-  }
-});
+var token = Ti.App.Properties.getString("access_token", "false");
 
-function login(e) {
-  if($.email.value != '' && $.password.value != '') {
-    loginReq.open(
-      "POST",
-      "http://sevenmatchestest.herokuapp.com/api/oauth/token"
-    );
-
-    var params = {
-      grant_type: "password",
-      client_id: "sevenmatches-android",
-      client_secret: "S3v3nm4tch3s8774!",
-      username: $.email.value,
-      password: $.password.value
-    };
-    
-    loginReq.send(params);
-  }else {
-    alert("Email/Wachtwoord moeten ingevuld zijn");
-  }
+if(token === "false") {
+  Alloy.createController("login").getView("login").open();
+}else {
+  $.index.open();
 }
-
-$.index.open();
