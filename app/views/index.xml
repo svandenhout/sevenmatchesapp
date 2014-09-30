@@ -1,5 +1,5 @@
 <Alloy>
 	<Window class="container">
-		<ImageView class="smLogo" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" />
+		<ImageView class="smLogo" />
 	</Window>
 </Alloy>
