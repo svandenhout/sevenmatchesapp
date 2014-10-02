@@ -1,6 +1,23 @@
-".container": {
+"#index": {
 	backgroundColor:"white"
 },
+
+"#teamList": {
+  top: 50
+},
+
+"Label": {
+  color: "black",
+  font: { fontSize: 16 }
+}
+
+".ageClass": {
+  left: 10
+}
+
+".teamNumber": {
+  left: 20
+}
 
 ".smLogo": {
   image: "/images/sevenmatches-logo.png",

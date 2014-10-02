@@ -4,7 +4,12 @@ var loginReq = Titanium.Network.createHTTPClient({
     var response = JSON.parse(json);
     if(response.access_token) {
       Ti.App.Properties.setString("access_token", response.access_token);
-      $.index.open();
+      
+      // set authorisation globals after login
+      Alloy.Globals.token = response.access_token;
+      Alloy.Globals.authHeader = "Bearer " + Alloy.Globals.token;
+      
+      Alloy.createController("index").getView("index").open();
     }else {
       alert("No access token");
     }

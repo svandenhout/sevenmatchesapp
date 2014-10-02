@@ -9,3 +9,8 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+
+Alloy.Globals.token = Ti.App.Properties.getString("access_token", "false");
+if(Alloy.Globals.token !== "false") {
+  Alloy.Globals.authHeader = "Bearer " + Alloy.Globals.token;
+}
