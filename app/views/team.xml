@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="team">
-	  <ListView id="teamList" defaultItemTemplate="teamTemplate">
+	  <ListView id="playerList" defaultItemTemplate="teamTemplate">
       <Templates>
         <ItemTemplate name="teamTemplate">
           <View>

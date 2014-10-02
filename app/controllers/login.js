@@ -24,7 +24,7 @@ var loginReq = Titanium.Network.createHTTPClient({
 
 function login(e) {
   if($.emailInput.value != "" && $.passwordInput.value != "") {
-    loginReq.open("POST","http://sevenmatchestest.herokuapp.com/api/oauth/token");
+    loginReq.open("POST","http://localhost:3000/api/oauth/token");
 
     var params = {
       grant_type: "password",
@@ -33,6 +33,7 @@ function login(e) {
       username: $.emailInput.value,
       password: $.passwordInput.value
     };
+    console.log(params);
     
     loginReq.send(params);
   }else {

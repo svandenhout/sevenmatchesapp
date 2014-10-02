@@ -1,9 +1,11 @@
-var teams = [];
+var teams = {};
 // reset access token when false (after login)
 var teamsReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
+    console.log(json);
     teams = JSON.parse(json);
+    console.log(teams);
     var items = _.map(teams, function(team) {
       return {
         ageClass: {text: team.ageClass},
@@ -22,8 +24,6 @@ var teamsReq = Titanium.Network.createHTTPClient({
 });
 
 function showTeamDetail(e) {
-  // console.log(teams[e.itemIndex]);
-  console.log(Alloy.createController("team", teams[e.itemIndex]).getView("team"));
   Alloy.createController("team", teams[e.itemIndex]).getView("team").open();
 }
 
@@ -51,7 +51,7 @@ if(Alloy.Globals.token === "false") {
 }else {
   $.index.open();
   
-  teamsReq.open("GET","http://sevenmatchestest.herokuapp.com/api/teams/owner");
+  teamsReq.open("GET","http://localhost:3000/api/teams/owner");
   teamsReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
   teamsReq.send();
 }
