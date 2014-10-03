@@ -3,13 +3,16 @@ var args = arguments[0] || {};
 var players = [];
 var keepers = [];
 
+console.log(args.players);
+
+var getPlayers = JSON.stringify(args.players);
+var getKeepers = JSON.stringify(args.keepers);
+
 var playerReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
-    console.log(this.responseText);
     players = JSON.parse(json);
-    console.log(players);
-    // $.playerList.sections["players"].appendItems(items);
+    $.playerList.sections[0].appendItems(players);
   },
   onerror: function(e) {
     console.log(this.responseText);
@@ -19,22 +22,20 @@ var playerReq = Titanium.Network.createHTTPClient({
 var keeperReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
-    console.log(this.responseText);
     keepers = JSON.parse(json);
-    console.log(keepers);
-    // $.playerList.sections["keepers"].appendItems(items);
+    $.playerList.sections[1].appendItems(keepers);
   },
   onerror: function(e) {
     console.log(this.responseText);
   }
 });
 
-playerReq.open("POST", "http://localhost:3000/api/players/getbyid");
+playerReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getPlayers);
 playerReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 // playerReq.setRequestheader("Content-Type", "application/javascript");
-playerReq.send(args);
+playerReq.send();
 
-keeperReq.open("POST", "http://localhost:3000/api/keepers/getbyid");
+keeperReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getKeepers);
 keeperReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 // keeperReq.setRequestheader("Content-Type", "application/javascript");
-keeperReq.send(args);
+keeperReq.send();

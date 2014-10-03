@@ -33,7 +33,6 @@ function login(e) {
       username: $.emailInput.value,
       password: $.passwordInput.value
     };
-    console.log(params);
     
     loginReq.send(params);
   }else {
