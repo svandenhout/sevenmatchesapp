@@ -3,16 +3,18 @@ var args = arguments[0] || {};
 var players = [];
 var keepers = [];
 
-console.log(args.players);
-
 var getPlayers = JSON.stringify(args.players);
 var getKeepers = JSON.stringify(args.keepers);
 
 var playerReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
-    players = JSON.parse(json);
-    $.playerList.sections[0].appendItems(players);
+    var items = _.map(JSON.parse(json), function(player) {
+      return {
+        "name.full": {text: player.name.full}
+      };
+    });
+    $.playerList.sections[0].appendItems(items);
   },
   onerror: function(e) {
     console.log(this.responseText);
@@ -22,8 +24,12 @@ var playerReq = Titanium.Network.createHTTPClient({
 var keeperReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
-    keepers = JSON.parse(json);
-    $.playerList.sections[1].appendItems(keepers);
+    var items = _.map(JSON.parse(json), function(player) {
+      return {
+        "name.full": {text: player.name.full}
+      };
+    });
+    $.playerList.sections[1].appendItems(items);
   },
   onerror: function(e) {
     console.log(this.responseText);

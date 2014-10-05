@@ -24,25 +24,6 @@ function showTeamDetail(e) {
   Alloy.createController("team", teams[e.itemIndex]).getView("team").open();
 }
 
-// these requests are needed for detail view
-// var playersReq = Titanium.Network.createHTTPClient({
-   // onload: function(e) {
-//      
-   // },
-   // onerror: function(e) {
-//      
-   // }
-// });
-// 
-// var keepersReq = Titanium.Network.createHTTPClient({
-   // onload: function(e) {
-//      
-   // },
-   // onerror: function(e) {
-//      
-   // }
-// });
-
 if(Alloy.Globals.token === "false") {
   Alloy.createController("login").getView("login").open();
 }else {
