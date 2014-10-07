@@ -1,12 +1,17 @@
 <Alloy>
-	<Window id="index">
-		<ImageView class="smLogo" />
+	<Window id="index" class="container">
+	  <View class="header"></View>
 		<ListView id="teamList" defaultItemTemplate="teamsTemplate">
 		  <Templates>
-        <ItemTemplate name="teamsTemplate">
+        <ItemTemplate class="listItem" name="teamsTemplate">
           <View onClick="showTeamDetail">
-            <Label bindId="ageClass" class="ageClass"/>
-            <Label bindId="teamNumber" class="teamNumber"/>
+            <View id="teamName">
+              <Label class="mediumLabel" bindId="name"/>
+            </View>
+            <View id="teamInfo">
+              <Label id="players" class="smallLabel" bindId="players" />
+              <Label id="keepers" class="smallLabel" bindId="keepers" />
+            </View>
           </View>
         </ItemTemplate>
       </Templates>

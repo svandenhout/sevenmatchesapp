@@ -9,10 +9,10 @@ var getKeepers = JSON.stringify(args.keepers);
 var playerReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
-    var items = _.map(JSON.parse(json), function(player) {
+    players = JSON.parse(json);
+    var items = _.map(players, function(player) {
       return {
-        "firstName": {text: player.name.first},
-        "lastName": {text: player.name.last}
+        "name": {text: player.name.first + " " + player.name.last},
       };
     });
     $.playerList.sections[0].setItems(items);
@@ -25,10 +25,10 @@ var playerReq = Titanium.Network.createHTTPClient({
 var keeperReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
-    var items = _.map(JSON.parse(json), function(player) {
+    keepers = JSON.parse(json);
+    var items = _.map(keepers, function(player) {
       return {
-        "firstName": {text: player.name.first},
-        "lastName": {text: player.name.last}
+        "name": {text: player.name.first + " " + player.name.last},
       };
     });
     $.playerList.sections[1].setItems(items);
@@ -39,7 +39,16 @@ var keeperReq = Titanium.Network.createHTTPClient({
 });
 
 function showPlayerDetail(e) {
-  Alloy.createController("player", players[e.itemIndex]).getView("player").open();
+  // sectionIndex 0 is playersection of list
+  if(e.sectionIndex === 0) {
+    Alloy.createController("player", players[e.itemIndex]).getView("player").open();
+  }
+  
+  // sectionIndex 1 is keepersection of list
+  if(e.sectionIndex === 1) {
+    Alloy.createController("keeper", keepers[e.itemIndex]).getView("keeper").open();
+  }
+  
 };
 
 function showKeeperDetail(e) {
@@ -48,10 +57,8 @@ function showKeeperDetail(e) {
 
 playerReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getPlayers);
 playerReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
-// playerReq.setRequestheader("Content-Type", "application/javascript");
 playerReq.send();
 
 keeperReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getKeepers);
 keeperReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
-// keeperReq.setRequestheader("Content-Type", "application/javascript");
 keeperReq.send();

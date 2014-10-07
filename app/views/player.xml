@@ -1,6 +1,13 @@
 <Alloy>
-	<View id="player" class="container">
-	  <Label id="firstName"></Label>
-	  <Label id="lastName"></Label>
-	</View>
+	<Window id="player" class="container">
+	  <View class="header"></View>
+	  <View class="playerInfo">
+	    <ImageView class="playerImage"></ImageView>
+	    <View class="playerInfoTextContainer">
+	      <Label class="playerInfoText" id="firstName" />
+        <Label class="playerInfoText" id="lastName" />
+	    </View>
+	  </View>
+	  <Button onClick="reviews">Beoordelingen</Button>
+	</Window>
 </Alloy>

@@ -1,27 +1,25 @@
-"#index": {
-	backgroundColor:"white"
+"#teamName" : {
+  left: 0,
+  width: "50%"
 },
 
-"#teamList": {
-  top: 50
+"#teamInfo" : {
+  right: 0,
+  width: "50%"
 },
 
-"Label": {
-  color: "black",
-  font: { fontSize: 16 }
-}
+"#players" : {
+  left: "8dp",
+  top: "5dp"
+},
 
-".ageClass": {
-  left: 10
-}
+"#keepers" : {
+  left: "8dp",
+  top: "22dp"
+},
 
-".teamNumber": {
-  left: 20
-}
-
-".smLogo": {
-  image: "/images/sevenmatches-logo.png",
+"#smLogo" : {
   width: 186,
   height: 53,
   top: 100
-},
+}

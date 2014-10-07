@@ -1,0 +1,55 @@
+".container" : {
+  backgroundColor: "white",
+  layout: "vertical"
+},
+
+".header" : {
+  top: "18dp",
+  height: "50dp",
+  backgroundColor: "#F0EEED"
+},
+
+".playerInfo" : {
+  height: "70dp"
+},
+
+".playerInfoTextContainer" : {
+  top: "10dp",
+  left: "70dp",
+  layout: "vertical"
+},
+
+".playerInfoText" : {
+  left: 0
+}
+
+".playerImage" : {
+  left: 10,
+  top: 10,
+  width: "50dp",
+  height: "50dp",
+  image: "/images/image-placeholder100x100.png"
+},
+
+"Label" : {
+  color: "#777ebc"
+}
+
+".listItem" : {
+  height: "50dp",
+  separatorColor: "#6B71A8"
+}
+
+".mediumLabel" : {
+  font: {
+    fontSize: "28dp",
+    fontFamily: "OpenSans-Light"
+  }
+},
+
+".smallLabel" : {
+  font: {
+    fontSize: "14dp",
+    fontFamily: "OpenSans"
+  }
+}

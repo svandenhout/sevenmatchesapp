@@ -6,8 +6,9 @@ var teamsReq = Titanium.Network.createHTTPClient({
     teams = JSON.parse(json);
     var items = _.map(teams, function(team) {
       return {
-        ageClass: {text: team.ageClass},
-        teamNumber: {text: team.teamNumber}
+        name: {text: team.gender + " " + team.ageClass + " " + team.teamNumber},
+        players: {text: "spelers: " + team.players.length},
+        keepers: {text: "keepers: " + team.keepers.length}
       };
     });
     $.teamList.sections[0].appendItems(items);

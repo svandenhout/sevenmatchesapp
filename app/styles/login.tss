@@ -1,18 +1,13 @@
-"#login": {
-  backgroundColor:"white"
-},
-
 ".smLogo": {
   image: "/images/sevenmatches-logo.png",
   width: 186,
   height: 53,
-  top: 100
+  top: 50
 },
 
 "#emailInput": {
   color:"#336699",
-  top:180,
-  left:10,
+  top:30,
   width:300,
   height:40,
   hintText:"Email",
@@ -23,8 +18,7 @@
 
 "#passwordInput": {
   color:"#336699",
-  top:240,
-  left:10,
+  top:30,
   width:300,
   height:40,
   hintText:"Password",
@@ -37,7 +31,7 @@
 "#loginBtn": {
   color: "#336699",
   title: "Login",
-  top: 300,
+  top: 30,
   width: 90,
   height: 45,
   borderColor: "#CCCCCC",
