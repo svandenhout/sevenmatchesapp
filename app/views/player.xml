@@ -8,6 +8,21 @@
         <Label class="playerInfoText" id="lastName" />
 	    </View>
 	  </View>
-	  <Button onClick="reviews">Beoordelingen</Button>
+	  
+	  <ListView id="playerBtns" defaultItemTemplate="playerBtns">
+	    
+      <Templates>
+        <ItemTemplate name="playerBtns">
+          <View onClick="reviews">
+            <Label class="mediumLabel" bindId="title"></Label>
+          </View>
+        </ItemTemplate>
+      </Templates>
+      
+      <ListSection name="buttons">
+        <ListItem title:text="Beoordelingen"></ListItem>
+      </ListSection>
+    </ListView>
+    
 	</Window>
 </Alloy>

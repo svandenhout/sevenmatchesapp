@@ -46,7 +46,7 @@ function showPlayerDetail(e) {
   
   // sectionIndex 1 is keepersection of list
   if(e.sectionIndex === 1) {
-    Alloy.createController("keeper", keepers[e.itemIndex]).getView("keeper").open();
+    Alloy.createController("player", keepers[e.itemIndex]).getView("player").open();
   }
   
 };

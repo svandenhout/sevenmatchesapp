@@ -6,16 +6,14 @@
         <ItemTemplate name="playersTemplate">
           <View onClick="showPlayerDetail">
             <Label class="mediumLabel" bindId="name"></Label>
-
           </View>
         </ItemTemplate>
       </Templates>
-      <ListSection name="players">
-        
-      </ListSection>
-      <ListSection name="keepers">
-        
-      </ListSection>
+      
+      <ListSection name="players"/>
+
+      <ListSection name="keepers"/>
+      
     </ListView>
 	</Window>
 </Alloy>
