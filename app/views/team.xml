@@ -1,20 +1,23 @@
 <Alloy>
 	<Window id="team">
-	  <ListView id="playerList" defaultItemTemplate="teamTemplate">
+	  <ListView id="playerList" >
       <Templates>
-        <ItemTemplate name="teamTemplate">
-          <View>
+        <ItemTemplate name="playersTemplate">
+          <View onClick="showPlayerDetail">
+            <Label bindId="name.full" class="name"/>
+          </View>
+        </ItemTemplate>
+        
+        <ItemTemplate name="keepersTemplate">
+          <View onClick="showPlayerDetail">
             <Label bindId="name.full" class="name"/>
           </View>
         </ItemTemplate>
       </Templates>
-      <ListSection name="players">
+      <ListSection name="players" defaultItemTemplate="playersTemplate">
         
       </ListSection>
-      <ListSection name="keepers">
-        
-      </ListSection>
-      <ListSection name="trainers">
+      <ListSection name="keepers" defaultItemTemplate="keepersTemplate">
         
       </ListSection>
     </ListView>

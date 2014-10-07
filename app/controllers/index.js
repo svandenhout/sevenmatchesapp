@@ -3,9 +3,7 @@ var teams = {};
 var teamsReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
-    console.log(json);
     teams = JSON.parse(json);
-    console.log(teams);
     var items = _.map(teams, function(team) {
       return {
         ageClass: {text: team.ageClass},
@@ -16,7 +14,6 @@ var teamsReq = Titanium.Network.createHTTPClient({
   },
   onerror: function(e) {
     var json = this.responseText;
-    console.log(json);
     var response = JSON.parse(json);
     if(response.email) alert(response.email);
     if(response.password) alert(response.password);
@@ -26,25 +23,6 @@ var teamsReq = Titanium.Network.createHTTPClient({
 function showTeamDetail(e) {
   Alloy.createController("team", teams[e.itemIndex]).getView("team").open();
 }
-
-// these requests are needed for detail view
-// var playersReq = Titanium.Network.createHTTPClient({
-   // onload: function(e) {
-//      
-   // },
-   // onerror: function(e) {
-//      
-   // }
-// });
-// 
-// var keepersReq = Titanium.Network.createHTTPClient({
-   // onload: function(e) {
-//      
-   // },
-   // onerror: function(e) {
-//      
-   // }
-// });
 
 if(Alloy.Globals.token === "false") {
   Alloy.createController("login").getView("login").open();
