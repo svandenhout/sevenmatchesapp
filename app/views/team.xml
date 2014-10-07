@@ -1,16 +1,18 @@
 <Alloy>
-	<Window id="team">
+	<Window id="team" class="container">
 	  <ListView id="playerList" >
       <Templates>
         <ItemTemplate name="playersTemplate">
           <View onClick="showPlayerDetail">
-            <Label bindId="name.full" class="name"/>
+            <Label bindId="firstName"></Label>
+            <Label bindId="lastName"></Label>
           </View>
         </ItemTemplate>
         
         <ItemTemplate name="keepersTemplate">
           <View onClick="showPlayerDetail">
-            <Label bindId="name.full" class="name"/>
+            <Label bindId="firstName"></Label>
+            <Label bindId="lastName"></Label>
           </View>
         </ItemTemplate>
       </Templates>

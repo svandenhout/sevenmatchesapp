@@ -13,10 +13,7 @@ var teamsReq = Titanium.Network.createHTTPClient({
     $.teamList.sections[0].appendItems(items);
   },
   onerror: function(e) {
-    var json = this.responseText;
-    var response = JSON.parse(json);
-    if(response.email) alert(response.email);
-    if(response.password) alert(response.password);
+    console.log(this.responseText);
   }
 });
 

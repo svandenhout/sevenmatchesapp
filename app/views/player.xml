@@ -1,4 +1,6 @@
 <Alloy>
-	<View class="container">
+	<View id="player" class="container">
+	  <Label id="firstName"></Label>
+	  <Label id="lastName"></Label>
 	</View>
 </Alloy>
