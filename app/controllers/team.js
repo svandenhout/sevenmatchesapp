@@ -36,6 +36,14 @@ var keeperReq = Titanium.Network.createHTTPClient({
   }
 });
 
+function showPlayerDetail(e) {
+  Alloy.createController("player", players[e.itemIndex]).getView("player").open();
+};
+
+function showKeeperDetail(e) {
+  Alloy.createController("keeper", keepers[e.itemIndex]).getView("player").open();
+};
+
 playerReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getPlayers);
 playerReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 // playerReq.setRequestheader("Content-Type", "application/javascript");
