@@ -1,9 +1,10 @@
-"#reviewDate" : {
-  left: 0,
-  width: "50%" 
+"#reviewList" : {
+  bottom: "-40dp"
 }
 
-"#reviewScore" : {
-  right: 0,
-  width: "50%" 
+"#newReviewBtn" : {
+  height: "40dp",
+  bottom: "0",
+  zindex: 1,
+  backgroundColor: "#6B71A8"
 }

@@ -39,20 +39,22 @@ var keeperReq = Titanium.Network.createHTTPClient({
 });
 
 function showPlayerDetail(e) {
+  var player = players[e.itemIndex];
+  
+  // set the correct review form on a player
+  
   // sectionIndex 0 is playersection of list
   if(e.sectionIndex === 0) {
-    Alloy.createController("player", players[e.itemIndex]).getView("player").open();
+    player.formId = args.playerForm;
   }
   
   // sectionIndex 1 is keepersection of list
   if(e.sectionIndex === 1) {
-    Alloy.createController("player", keepers[e.itemIndex]).getView("player").open();
+    player.formId = args.keeperForm;
   }
   
-};
-
-function showKeeperDetail(e) {
-  Alloy.createController("keeper", keepers[e.itemIndex]).getView("keeper").open();
+  Alloy.createController("player", players[e.itemIndex]).getView("player").open();
+  
 };
 
 playerReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getPlayers);

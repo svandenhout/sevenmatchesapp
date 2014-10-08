@@ -1,0 +1,28 @@
+<Alloy>
+	<Window id="createReview" class="container">
+	  
+	  <ListView id="reviewList" defaultItemTemplate="reviewItem">
+      
+      <Templates>
+        <ItemTemplate name="reviewItem">
+          <View class="leftView">
+            <Label bindId="itemTitle"></Label>
+          </View>
+          <View class="rightView">
+            <Slider min="1" max="10" width="100%"></Slider>
+          </View>
+        </ItemTemplate>
+      </Templates>
+      
+      <ListSection name="personality" />
+      
+      <ListSection name="technique" />
+      
+      <ListSection name="tactics" />
+      
+      <ListSection name="physical" />
+      
+    </ListView>
+    
+	</Window>
+</Alloy>
