@@ -1,18 +1,23 @@
 <Alloy>
 	<Window id="reviews" class="container">
-	  <ListView id="playerBtns" defaultItemTemplate="playerBtns">
+	  <View class="header">
+      <Label class="smallLabel">beoordelingen</Label>
+    </View>
+	  <ListView id="reviewList" defaultItemTemplate="reviews">
       
       <Templates>
-        <ItemTemplate name="playerBtns">
-          <View>
-            <Label class="mediumLabel" bindId="title"></Label>
+        <ItemTemplate name="reviews">
+          <View id="reviewDate">
+            <Label class="mediumLabel" bindId="date"></Label>
+          </View>
+          <View id="reviewScore">
+            <Label class="mediumLabel" bindId="score"></Label>
           </View>
         </ItemTemplate>
       </Templates>
       
-      <ListSection name="buttons">
-        <ListItem title:text="Beoordelingen"></ListItem>
-      </ListSection>
+      <ListSection name="review" />
+      
     </ListView>
 	</Window>
 </Alloy>

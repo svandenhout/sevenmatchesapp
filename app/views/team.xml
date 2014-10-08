@@ -1,6 +1,8 @@
 <Alloy>
 	<Window id="team" class="container">
-	  <View class="header"></View>
+	  <View class="header">
+      <Label class="smallLabel">team</Label>
+    </View>
 	  <ListView id="playerList" defaultItemTemplate="playersTemplate">
       <Templates>
         <ItemTemplate name="playersTemplate">

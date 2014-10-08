@@ -1,4 +1,9 @@
+"#reviewDate" : {
+  left: 0,
+  width: "50%" 
+}
 
-".container" : {
-  
+"#reviewScore" : {
+  right: 0,
+  width: "50%" 
 }

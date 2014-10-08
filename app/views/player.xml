@@ -1,6 +1,8 @@
 <Alloy>
 	<Window id="player" class="container">
-	  <View class="header"></View>
+	  <View class="header">
+      <Label class="smallLabel">speler</Label>
+    </View>
 	  <View class="playerInfo">
 	    <ImageView class="playerImage"></ImageView>
 	    <View class="playerInfoTextContainer">

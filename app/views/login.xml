@@ -1,6 +1,8 @@
 <Alloy>
   <Window class="container">
-    <View class="header"></View>
+    <View class="header">
+      <Label class="smallLabel">login</Label>
+    </View>
     <ImageView class="smLogo"/>
     <TextField id="emailInput"></TextField>
     <TextField id="passwordInput"></TextField>
