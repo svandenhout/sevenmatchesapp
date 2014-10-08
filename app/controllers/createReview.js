@@ -43,6 +43,6 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
   }
 });
 
-reviewFormReq.open("GET", "http://localhost:3000/api/review/form/" + args.formId);
+reviewFormReq.open("GET", "http://sevenmatchestest.herokuapp.com/api/review/form/" + args.formId);
 reviewFormReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 reviewFormReq.send();

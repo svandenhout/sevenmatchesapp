@@ -1,6 +1,8 @@
 <Alloy>
 	<Window id="createReview" class="container">
-	  
+	  <View class="header">
+      <Label class="smallLabel">nieuwe beoordeling</Label>
+    </View>
 	  <ListView id="reviewList" defaultItemTemplate="reviewItem">
       
       <Templates>
