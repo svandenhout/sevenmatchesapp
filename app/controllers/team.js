@@ -55,10 +55,10 @@ function showKeeperDetail(e) {
   Alloy.createController("keeper", keepers[e.itemIndex]).getView("keeper").open();
 };
 
-playerReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getPlayers);
+playerReq.open("GET", "http://sevenmatchestest.herokuapp.com/api/players/getbyids?players=" + getPlayers);
 playerReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 playerReq.send();
 
-keeperReq.open("GET", "http://localhost:3000/api/players/getbyids?players=" + getKeepers);
+keeperReq.open("GET", "http://sevenmatchestest.herokuapp.com/api/players/getbyids?players=" + getKeepers);
 keeperReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 keeperReq.send();

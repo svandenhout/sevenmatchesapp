@@ -19,5 +19,6 @@
       <ListSection name="review" />
       
     </ListView>
+    <ButtonBar>Nieuwe Beoordeling</ButtonBar>
 	</Window>
 </Alloy>

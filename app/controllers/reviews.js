@@ -27,6 +27,6 @@ var reviewsReq = Titanium.Network.createHTTPClient({
   }
 });
 
-reviewsReq.open("GET", "http://localhost:3000/api//reviews/all/" + args._id);
+reviewsReq.open("GET", "http://sevenmatchestest.herokuapp.com/api//reviews/all/" + args._id);
 reviewsReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 reviewsReq.send();
