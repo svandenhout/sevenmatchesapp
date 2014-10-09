@@ -10,21 +10,7 @@
         <Label class="playerInfoText" id="lastName" />
 	    </View>
 	  </View>
-	  
-	  <ListView id="playerBtns" defaultItemTemplate="playerBtns">
-	    
-      <Templates>
-        <ItemTemplate name="playerBtns">
-          <View onClick="reviews">
-            <Label class="mediumLabel" bindId="title"></Label>
-          </View>
-        </ItemTemplate>
-      </Templates>
-      
-      <ListSection name="buttons">
-        <ListItem title:text="Beoordelingen"></ListItem>
-      </ListSection>
-    </ListView>
+	  <Button onClick="reviews" class="fullScreenBtn">Beoordelingen</Button>
     
 	</Window>
 </Alloy>

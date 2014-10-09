@@ -29,12 +29,8 @@
 },
 
 "#loginBtn": {
-  color: "#336699",
   title: "Login",
   top: 30,
   width: 90,
   height: 45,
-  borderColor: "#CCCCCC",
-  borderWidth: 2,
-  borderRadius: 5
 }
