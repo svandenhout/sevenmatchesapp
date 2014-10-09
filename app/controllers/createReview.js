@@ -89,7 +89,24 @@ function changeScore(e) {
 }
 
 function createReview(e) {
+  review.personality.avg = average(review.personality.scores);
+  review.tactics.avg = average(review.tactics.scores);
+  review.technique.avg = average(review.technique.scores);
+  review.physical.avg = average(review.physical.scores);  
   console.log(review);
+}
+
+function average(numbers) {
+  var sum = 0;
+  var count = 0;
+  for(var i = 0; i < numbers.length; i++) {
+    if(numbers[i] !== "<null>") {
+      sum += numbers[i];
+      count++;
+    }
+  }
+  var avg = sum / i;
+  return avg;
 }
 
 reviewFormReq.open("GET", "http://sevenmatchestest.herokuapp.com/api/review/form/" + args.formId);
