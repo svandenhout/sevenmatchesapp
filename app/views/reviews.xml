@@ -19,8 +19,8 @@
       <ListSection name="review" />
       
     </ListView>
-    <View class="footer">
-      <Button id="newReviewBtn" onClick="newReview">Nieuwe Beoordeling</Button>
-    </View>
+
+    <Button class="footerBtn" id="newReviewBtn" onClick="newReview">Nieuwe Beoordeling</Button>
+
 	</Window>
 </Alloy>
