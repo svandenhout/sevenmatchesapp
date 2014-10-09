@@ -1,5 +1,4 @@
 var args = arguments[0] || {};
-console.log(args);
 
 var reviewsReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
@@ -26,6 +25,10 @@ var reviewsReq = Titanium.Network.createHTTPClient({
     console.log(this.responseText);
   }
 });
+
+function newReview(e) {
+  Alloy.createController("createReview", args).getView("createReview").open();
+};
 
 reviewsReq.open("GET", "http://sevenmatchestest.herokuapp.com/api//reviews/all/" + args._id);
 reviewsReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);

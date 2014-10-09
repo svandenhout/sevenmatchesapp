@@ -7,10 +7,10 @@
       
       <Templates>
         <ItemTemplate name="reviews">
-          <View id="reviewDate">
+          <View class="leftView" id="reviewDate">
             <Label class="mediumLabel" bindId="date"></Label>
           </View>
-          <View id="reviewScore">
+          <View class="rightView" id="reviewScore">
             <Label class="mediumLabel" bindId="score"></Label>
           </View>
         </ItemTemplate>
@@ -19,6 +19,8 @@
       <ListSection name="review" />
       
     </ListView>
+    
     <ButtonBar>Nieuwe Beoordeling</ButtonBar>
+	
 	</Window>
 </Alloy>
