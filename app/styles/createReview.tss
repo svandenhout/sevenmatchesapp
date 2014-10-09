@@ -1,4 +1,8 @@
+"#reviewItemList" : {
+  bottom: "-40dp"
+}
 
-".container" : {
-  
+".itemScore" : {
+  left: 0,
+  width: "80%"
 }

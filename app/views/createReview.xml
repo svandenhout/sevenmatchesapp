@@ -3,7 +3,8 @@
 	  <View class="header">
       <Label class="smallLabel">nieuwe beoordeling</Label>
     </View>
-	  <ListView id="reviewList" defaultItemTemplate="reviewItem">
+    
+	  <ListView id="reviewItemList" defaultItemTemplate="reviewItem">
       
       <Templates>
         <ItemTemplate name="reviewItem">
@@ -11,8 +12,9 @@
             <Label bindId="itemTitle"></Label>
           </View>
           <View class="rightView">
-            <Slider min="1" max="10" width="100%"></Slider>
+            <Slider onChange="changeScore" min="1" max="10" value="0" />
           </View>
+          
         </ItemTemplate>
       </Templates>
       
@@ -25,6 +27,10 @@
       <ListSection name="physical" />
       
     </ListView>
+    
+    <Button class="footerBtn" onClick="createReview">
+      Beoordeling Opslaan
+    </Button>
     
 	</Window>
 </Alloy>

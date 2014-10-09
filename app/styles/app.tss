@@ -21,7 +21,7 @@
 
 ".playerInfoText" : {
   left: 0
-}
+},
 
 ".playerImage" : {
   left: 10,
@@ -62,9 +62,23 @@
     fontSize: "14dp",
     fontFamily: "OpenSans"
   }
-}
+},
 
 "Button" : {
+  color: "#FFF",
+  backgroundColor: "#777FBC",
+  borderColor: "#FFF",
+  borderWidth: 2,
+  borderRadius: 5
+},
+
+".footerBtn" : {
+  width: "100%",
+  height: "40dp",
+  bottom: "0",
+},
+
+".fullScreenBtn" : {
   width: "100%",
   height: "40dp"
 }

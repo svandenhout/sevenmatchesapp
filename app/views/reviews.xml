@@ -20,7 +20,7 @@
       
     </ListView>
     
-    <ButtonBar>Nieuwe Beoordeling</ButtonBar>
+    <Button class="footerBtn" onClick="newReview">Nieuwe Beoordeling</Button>
 	
 	</Window>
 </Alloy>
