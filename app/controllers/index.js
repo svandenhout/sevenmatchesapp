@@ -26,8 +26,7 @@ if(Alloy.Globals.token === "false") {
   Alloy.createController("login").getView("login").open();
 }else {
   $.index.open();
-  
-  teamsReq.open("GET","http://sevenmatchestest.herokuapp.com/api/teams/owner");
+  teamsReq.open("GET",Alloy.Globals.url + "/api/teams/owner");
   teamsReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
   teamsReq.send();
 }

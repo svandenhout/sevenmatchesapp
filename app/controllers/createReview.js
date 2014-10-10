@@ -65,6 +65,18 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
   }
 });
 
+var createReviewReq = Titanium.Network.createHTTPClient({
+  onload: function(e) {
+    var json = this.responseText;
+    var data = JSON.parse(json);
+    // console.log(data);
+    Alloy.createController("index").getView("index").open();
+  },
+  onerror: function(e) {
+    console.log(this.responseText);
+  }
+});
+
 // this needs to change the number after the score
 function changeScore(e) {
   if(e.sectionIndex === 0) {
@@ -88,27 +100,35 @@ function changeScore(e) {
   }
 }
 
+
+
 function createReview(e) {
   review.personality.avg = average(review.personality.scores);
   review.tactics.avg = average(review.tactics.scores);
   review.technique.avg = average(review.technique.scores);
-  review.physical.avg = average(review.physical.scores);  
-  console.log(review);
+  review.physical.avg = average(review.physical.scores);
+  
+  var data = {json: JSON.stringify(review)};
+  createReviewReq.open("POST", Alloy.Globals.url + "/api/review/create/");
+  createReviewReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
+  createReviewReq.send(data);
 }
 
 function average(numbers) {
   var sum = 0;
   var count = 0;
   for(var i = 0; i < numbers.length; i++) {
-    if(numbers[i] !== "<null>") {
+    if(numbers[i] == 0) {
+      continue;
+    }else {
       sum += numbers[i];
       count++;
     }
   }
-  var avg = sum / i;
+  var avg = sum / count;
   return avg;
 }
 
-reviewFormReq.open("GET", "http://sevenmatchestest.herokuapp.com/api/review/form/" + args.formId);
+reviewFormReq.open("GET", Alloy.Globals.url + "/api/review/form/" + args.formId);
 reviewFormReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 reviewFormReq.send();

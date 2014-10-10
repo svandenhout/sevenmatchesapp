@@ -57,10 +57,10 @@ function showPlayerDetail(e) {
   
 };
 
-playerReq.open("GET", "http://sevenmatchestest.herokuapp.com/api/players/getbyids?players=" + getPlayers);
+playerReq.open("GET", Alloy.Globals.url + "/api/players/getbyids?players=" + getPlayers);
 playerReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 playerReq.send();
 
-keeperReq.open("GET", "http://sevenmatchestest.herokuapp.com/api/players/getbyids?players=" + getKeepers);
+keeperReq.open("GET", Alloy.Globals.url + "/api/players/getbyids?players=" + getKeepers);
 keeperReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 keeperReq.send();

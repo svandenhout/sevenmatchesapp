@@ -30,6 +30,6 @@ function newReview(e) {
   Alloy.createController("createReview", args).getView("createReview").open();
 };
 
-reviewsReq.open("GET", "http://sevenmatchestest.herokuapp.com/api//reviews/all/" + args._id);
+reviewsReq.open("GET", Alloy.Globals.url + "/api//reviews/all/" + args._id);
 reviewsReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 reviewsReq.send();
