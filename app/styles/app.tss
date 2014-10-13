@@ -4,9 +4,12 @@
 },
 
 ".header" : {
-  top: "18dp",
   height: "50dp",
-  backgroundImage: "header-iphone.png"
+  backgroundImage: "/images/header-iphone.png"
+},
+
+".header[platform=ios]" : {
+  top: "18dp",
 },
 
 ".playerInfo" : {
@@ -21,6 +24,10 @@
 
 ".playerInfoText" : {
   left: 0
+},
+
+".odd" : {
+  backgroundColor: "#F0EEED"
 },
 
 ".playerImage" : {
@@ -45,12 +52,26 @@
   width: "50%"
 }
 
-".listItem" : {
+"ListItem" : {
   height: "50dp",
-  separatorColor: "#6B71A8"
+  separatorColor: "#FFF"
+},
+
+".largeBoldLabel" : {
+  font: {
+    fontSize: "28dp",
+    fontFamily: "OpenSans-Bold"
+  }
 }
 
-".mediumLabel" : {
+".mediumBoldLabel" : {
+  font: {
+    fontSize: "18dp",
+    fontFamily: "OpenSans-Bold"
+  }
+}
+
+".largeLightLabel" : {
   font: {
     fontSize: "28dp",
     fontFamily: "OpenSans-Light"

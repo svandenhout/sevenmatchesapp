@@ -3,12 +3,24 @@
 	  <View class="header">
 	    <Label class="smallLabel">teams</Label>
 	  </View>
-		<ListView id="teamList" defaultItemTemplate="teamsTemplate">
+		<ListView id="teamList" defaultItemTemplate="teamItem">
 		  <Templates>
-        <ItemTemplate class="listItem" name="teamsTemplate">
+        <ItemTemplate name="teamItem">
           <View onClick="showTeamDetail">
             <View id="teamName">
-              <Label class="mediumLabel" bindId="name"/>
+              <Label class="largeLightLabel" bindId="name"/>
+            </View>
+            <View id="teamInfo">
+              <Label id="players" class="smallLabel" bindId="players" />
+              <Label id="keepers" class="smallLabel" bindId="keepers" />
+            </View>
+          </View>
+        </ItemTemplate>
+        
+        <ItemTemplate class="odd" name="teamItemOdd">
+          <View onClick="showTeamDetail">
+            <View id="teamName">
+              <Label class="largeLightLabel" bindId="name"/>
             </View>
             <View id="teamInfo">
               <Label id="players" class="smallLabel" bindId="players" />

@@ -11,11 +11,7 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 Alloy.Globals.token = Ti.App.Properties.getString("access_token", "false");
-if(
-  Titanium.Platform.model === "Simulator" || 
-  Titanium.Platform.model === "Android SDK built for x86" ||
-  Titanium.Platform.model === "google_sdk"
-) {
+if(Titanium.Platform.model === "Simulator") {
   Alloy.Globals.url = "http://localhost:3000";
 }else {
   Alloy.Globals.url = "http://sevenmatchestest.herokuapp.com";

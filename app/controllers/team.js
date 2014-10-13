@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+console.log(args);
 
 var players = [];
 var keepers = [];
@@ -9,13 +10,23 @@ var getKeepers = JSON.stringify(args.keepers);
 var playerReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
+    var items = [];
+    var title = [{
+      title: {text: "Spelers"},
+      template: "playerItemHeader"
+    }];
+    
     players = JSON.parse(json);
-    var items = _.map(players, function(player) {
-      return {
-        "name": {text: player.name.first + " " + player.name.last},
-      };
-    });
-    $.playerList.sections[0].setItems(items);
+    for(var i = 0; i < players.length; i++) {
+      items.push({
+        name: {text: players[i].name.first + " " + players[i].name.last},
+      });
+      if(i % 2 === 0) items[i].template = "playerItemEven";
+      console.log(i & 1);
+    }
+    
+    $.playerList.sections[0].appendItems(title);
+    $.playerList.sections[0].appendItems(items);
   },
   onerror: function(e) {
     console.log(this.responseText);
@@ -25,13 +36,21 @@ var playerReq = Titanium.Network.createHTTPClient({
 var keeperReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
+    var items = [];
+    var title = [{
+      title: {text: "Keepers"},
+      template: "playerItemHeader"
+    }];
+    
     keepers = JSON.parse(json);
-    var items = _.map(keepers, function(player) {
-      return {
-        "name": {text: player.name.first + " " + player.name.last},
-      };
-    });
-    $.playerList.sections[1].setItems(items);
+    for(var i = 0; i < keepers.length; i++) {
+      items.push({
+        name: {text: keepers[i].name.first + " " + keepers[i].name.last},
+      });
+      if(i % 2 === 0) items[i].template = "playerItemEven";
+    }
+    $.playerList.sections[1].appendItems(title);
+    $.playerList.sections[1].appendItems(items);
   },
   onerror: function(e) {
     console.log(this.responseText);
@@ -53,7 +72,7 @@ function showPlayerDetail(e) {
     player.formId = args.keeperForm;
   }
   
-  Alloy.createController("player", players[e.itemIndex]).getView("player").open();
+  Alloy.createController("player", players[e.itemIndex + 1]).getView("player").open();
   
 };
 

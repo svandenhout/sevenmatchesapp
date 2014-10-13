@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 
 var review = {
+  playerId: args._id,
   personality: {
     scores: []
   },
@@ -20,45 +21,52 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
     var json = this.responseText;
     var reviewForm = JSON.parse(json);
     
-    var personality = _.map(reviewForm.personality, function(reviewItem) {
-      review.personality.scores.push(0);
-      return {
-        "itemScore": {id: reviewItem},
-        "itemTitle": {text: reviewItem}
-      };
-    });
+    var personalityTitle = [{
+      title: {text: "Persoonlijkheid"}, 
+      template: "reviewListHeader", 
+      backgroundColor: "#FFF"
+    }];
     
-    $.reviewItemList.sections[0].setItems(personality);
+    var techniqueTitle = [{
+      title: {text: "Techniek"}, 
+      template: "reviewListHeader", 
+      backgroundColor: "#FFF"
+    }];
     
-    var technique = _.map(reviewForm.technique, function(reviewItem) {
-     review.technique.scores.push(0);
-     return {
-        "itemScore": {id: reviewItem},
-    "itemTitle": {text: reviewItem}
-     };
-    });
+    var tacticsTitle = [{
+      title: {text: "Taktiek"}, 
+      template: "reviewListHeader", 
+      backgroundColor: "#FFF"
+    }];
     
-    $.reviewItemList.sections[1].setItems(technique);
+    var physicalTitle = [{
+      title: {text: "Fysiek"}, 
+      template: "reviewListHeader", 
+      backgroundColor: "#FFF"
+    }];
     
-    var tactics = _.map(reviewForm.tactics, function(reviewItem) {
-      review.tactics.scores.push(0);
-      return {
-        "itemScore": {id: reviewItem},
-        "itemTitle": {text: reviewItem}
-      };
-    });
+    var personality = mapReviewForm(reviewForm.personality);
     
-    $.reviewItemList.sections[2].setItems(tactics);
+    var technique = mapReviewForm(reviewForm.technique);
     
-    var physical = _.map(reviewForm.physical, function(reviewItem) {
-      review.physical.scores.push(0); 
-      return {
-        "itemScore": {id: reviewItem},
-        "itemTitle": {text: reviewItem}
-      };
-    });
+    var tactics = mapReviewForm(reviewForm.tactics);
     
-    $.reviewItemList.sections[3].setItems(physical);
+    var physical = mapReviewForm(reviewForm.physical);
+    
+    
+    $.reviewItemList.sections[0].appendItems(personalityTitle);
+    $.reviewItemList.sections[0].appendItems(personality);
+    
+    $.reviewItemList.sections[1].appendItems(techniqueTitle);
+    $.reviewItemList.sections[1].appendItems(technique);
+    
+    
+    $.reviewItemList.sections[2].appendItems(tacticsTitle);
+    $.reviewItemList.sections[2].appendItems(tactics);
+    
+    
+    $.reviewItemList.sections[3].appendItems(physicalTitle);
+    $.reviewItemList.sections[3].appendItems(physical);
   },
   onerror: function(e) {
     console.log(this.responseText);
@@ -69,13 +77,39 @@ var createReviewReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
     var data = JSON.parse(json);
-    // console.log(data);
     Alloy.createController("index").getView("index").open();
   },
   onerror: function(e) {
     console.log(this.responseText);
   }
 });
+
+// TODO: make for loop
+function mapReviewForm(reviewFormSection) {
+  var index = 0;
+  var section = _.map(reviewFormSection, function(reviewItem) {
+    review.personality.scores.push(0);
+    index++;
+    
+    if(index % 2 !== 0) {
+      return {
+        "itemTitle": {
+          text: reviewItem
+        },
+        template: "reviewItemOdd"
+      };
+    }else {
+      return {
+        "itemTitle": {
+          text: reviewItem
+        },
+      };
+    }
+    
+  });
+  
+  return section;
+}
 
 // this needs to change the number after the score
 function changeScore(e) {

@@ -13,6 +13,8 @@ var reviewsReq = Titanium.Network.createHTTPClient({
         review.physical.avg
       ) / 4;
       
+      avg = Math.floor(avg * 100) / 100;
+      
       return {
         "date": {text: review.parseDate},
         "score": {text: avg}

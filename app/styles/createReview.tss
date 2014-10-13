@@ -1,3 +1,15 @@
 "#reviewItemList" : {
   bottom: "-40dp"
 }
+
+".scoreSlider" : {
+  bottom: "10dp" 
+}
+
+"#reviewItem" : {
+  height: "70dp"
+}
+
+"#itemTitle" : {
+  top: "0dp"
+}

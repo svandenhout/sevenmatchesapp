@@ -4,13 +4,21 @@ var teamsReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
     teams = JSON.parse(json);
-    var items = _.map(teams, function(team) {
-      return {
-        name: {text: team.gender + " " + team.ageClass + " " + team.teamNumber},
-        players: {text: "spelers: " + team.players.length},
-        keepers: {text: "keepers: " + team.keepers.length}
-      };
-    });
+    var items = [];
+    
+    for(var i = 0; i < teams.length; i++) {
+      items.push({
+        name: {
+          text: teams[i].gender + " " + 
+          teams[i].ageClass + " " 
+          + teams[i].teamNumber
+        },
+        players: {text: "spelers: " + teams[i].players.length},
+        keepers: {text: "keepers: " + teams[i].keepers.length},
+      });
+      if(i & 1 !== 0) items[i].template = "teamItemOdd";
+    };
+    
     $.teamList.sections[0].appendItems(items);
   },
   onerror: function(e) {
@@ -26,7 +34,7 @@ if(Alloy.Globals.token === "false") {
   Alloy.createController("login").getView("login").open();
 }else {
   $.index.open();
-  teamsReq.open("GET",Alloy.Globals.url + "/api/teams/owner");
+  teamsReq.open("GET", Alloy.Globals.url + "/api/teams/owner");
   teamsReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
   teamsReq.send();
 }

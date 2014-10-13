@@ -7,14 +7,28 @@
 	  <ListView id="reviewItemList" defaultItemTemplate="reviewItem">
       
       <Templates>
-        <ItemTemplate name="reviewItem">
-          <View class="leftView">
-            <Label bindId="itemTitle"></Label>
-          </View>
-          <View class="rightView">
-            <Slider onChange="changeScore" min="1" max="10" value="0" />
-          </View>
+        <ItemTemplate id="reviewItem" name="reviewItem" bindId="reviewItem">
+          <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
+          <Slider 
+            class="scoreSlider" 
+            onChange="changeScore" 
+            min="1" max="10" value="0" width="100%" 
+          />
           
+        </ItemTemplate>
+        
+        <ItemTemplate class="odd" id="reviewItem" name="reviewItemOdd" bindId="reviewItemOdd">
+          <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
+          <Slider 
+            class="scoreSlider" 
+            onChange="changeScore" 
+            min="1" max="10" value="0" width="100%" 
+          />
+          
+        </ItemTemplate>
+        
+        <ItemTemplate name="reviewListHeader">
+          <Label class="largeBoldLabel" bindId="title" />
         </ItemTemplate>
       </Templates>
       
