@@ -1,29 +1,32 @@
 <Alloy>
 	<Window id="team" class="container">
 	  <View class="header">
-      <Label class="smallLabel">team</Label>
+      <Label class="largeBoldLabel">Spelerslijst</Label>
     </View>
 	  <ListView id="playerList" defaultItemTemplate="playerItem">
       <Templates>
-        <ItemTemplate name="playerItem">
-          <View onClick="showPlayerDetail">
-            <Label class="largeLightLabel" bindId="name"></Label>
+        <ItemTemplate id="playerItem" name="playerItem">
+          <View class="playerInfo" onClick="showPlayerDetail">
+            <ImageView class="playerImage"></ImageView>
+            <View class="playerInfoTextContainer">
+              <Label class="mediumLightLabel" id="playerName" bindId="name" />
+              <Label class="mediumMediumlabel" id="playerType" bindId="playerType" />
+            </View>
           </View>
         </ItemTemplate>
         
-        <ItemTemplate class="odd" name="playerItemEven">
-          <View onClick="showPlayerDetail">
-            <Label class="largeLightLabel" bindId="name"></Label>
+        <ItemTemplate id="playerItem" class="odd" name="playerItemEven">
+          <View class="playerInfo" onClick="showPlayerDetail">
+            <ImageView class="playerImage"></ImageView>
+            <View class="playerInfoTextContainer">
+              <Label class="mediumLightLabel" id="playerName" bindId="name" />
+              <Label class="mediumMediumlabel" id="playerType" bindId="playerType" />
+            </View>
           </View>
-        </ItemTemplate>
-        
-        <ItemTemplate name="playerItemHeader">
-          <Label class="largeBoldLabel" bindId="title" />
         </ItemTemplate>
       </Templates>
       
       <ListSection name="players"/>
-
       <ListSection name="keepers"/>
       
     </ListView>

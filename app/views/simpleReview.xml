@@ -1,10 +1,10 @@
 <Alloy>
-	<Window id="createReview" class="container">
-	  <View class="header">
+  <Window id="simpleReview" class="container">
+    <View class="header">
       <Label class="largeBoldLabel">nieuwe beoordeling</Label>
     </View>
     
-	  <ListView id="reviewItemList" defaultItemTemplate="reviewItem">
+    <ListView id="reviewItemList" defaultItemTemplate="reviewItem">
       
       <Templates>
         <ItemTemplate id="reviewItem" name="reviewItem" bindId="reviewItem">
@@ -27,22 +27,9 @@
           
         </ItemTemplate>
         
-        <ItemTemplate name="reviewListHeader">
-          <Label class="largeBoldLabel" bindId="title" />
-        </ItemTemplate>
       </Templates>
       
-      <ListSection name="personalityTitle"></ListSection>
-      <ListSection name="personality" />
-      
-      <ListSection name="techniqueTitle"></ListSection>
-      <ListSection name="technique" />
-      
-      <ListSection name="tacticsTitle"></ListSection>
-      <ListSection name="tactics" />
-      
-      <ListSection name="physicalTitle"></ListSection>
-      <ListSection name="physical" />
+      <ListSection name="reviewItems"></ListSection>
       <FooterView>
         <Button class="footerBtn" onClick="createReview">
           Samenvatting
@@ -52,5 +39,5 @@
     
     
     
-	</Window>
+  </Window>
 </Alloy>

@@ -1,0 +1,29 @@
+<Alloy>
+	<Window id="sendReview" class="container">
+	  <View class="header">
+      <Label class="largeBoldLabel">Beoordeling</Label>
+    </View>
+    <Label class="smallLightLabel"></Label>
+    <TextArea id="summary"></TextArea>
+    <View class="avgSectionView">
+      <Label class="smallBoldLabel" id="leftLabel">Score voor persoonlijkheid</Label>
+      <Label class="smallBoldLabel" id="personalityAvg"></Label>
+    </View>
+    <View class="avgSectionView">
+      <Label class="smallBoldLabel" id="leftLabel">Score voor techniek</Label>
+      <Label class="smallBoldLabel" id="techniqueAvg"></Label>
+    </View>
+    <View class="avgSectionView">
+      <Label class="smallBoldLabel" id="leftLabel">Score voor tactiek</Label>
+      <Label class="smallBoldLabel" id="tacticsAvg"></Label>
+    </View>
+    <View class="avgSectionView">
+      <Label class="smallBoldLabel" id="leftLabel">Score voor fysiek</Label>
+      <Label class="smallBoldLabel" id="physicalAvg"></Label>
+    </View>
+    <Label class="mediumBoldLabel" id="avg"></Label>
+    <Button class="footerBtn" onClick="sendReview">
+      Beoordeling Opslaan
+    </Button>
+	</Window>
+</Alloy>

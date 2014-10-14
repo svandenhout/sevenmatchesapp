@@ -22,119 +22,91 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
     var reviewForm = JSON.parse(json);
     
     var personalityTitle = [{
-      title: {text: "Persoonlijkheid"}, 
+      title: {text: "1/4 Persoonlijkheid"}, 
       template: "reviewListHeader", 
       backgroundColor: "#FFF"
     }];
     
     var techniqueTitle = [{
-      title: {text: "Techniek"}, 
+      title: {text: "2/4 Techniek"}, 
       template: "reviewListHeader", 
       backgroundColor: "#FFF"
     }];
     
     var tacticsTitle = [{
-      title: {text: "Taktiek"}, 
+      title: {text: "3/4 Taktiek"}, 
       template: "reviewListHeader", 
       backgroundColor: "#FFF"
     }];
     
     var physicalTitle = [{
-      title: {text: "Fysiek"}, 
+      title: {text: "4/4 Fysiek"}, 
       template: "reviewListHeader", 
       backgroundColor: "#FFF"
     }];
     
-    var personality = mapReviewForm(reviewForm.personality);
-    
-    var technique = mapReviewForm(reviewForm.technique);
-    
-    var tactics = mapReviewForm(reviewForm.tactics);
-    
-    var physical = mapReviewForm(reviewForm.physical);
-    
+    var personality = mapReviewForm(reviewForm.personality, "personality");
+    var technique = mapReviewForm(reviewForm.technique, "technique");
+    var tactics = mapReviewForm(reviewForm.tactics, "tactics");
+    var physical = mapReviewForm(reviewForm.physical, "physical");
     
     $.reviewItemList.sections[0].appendItems(personalityTitle);
-    $.reviewItemList.sections[0].appendItems(personality);
+    $.reviewItemList.sections[1].appendItems(personality);
     
-    $.reviewItemList.sections[1].appendItems(techniqueTitle);
-    $.reviewItemList.sections[1].appendItems(technique);
+    $.reviewItemList.sections[2].appendItems(techniqueTitle);
+    $.reviewItemList.sections[3].appendItems(technique);
     
+    $.reviewItemList.sections[4].appendItems(tacticsTitle);
+    $.reviewItemList.sections[5].appendItems(tactics);
     
-    $.reviewItemList.sections[2].appendItems(tacticsTitle);
-    $.reviewItemList.sections[2].appendItems(tactics);
-    
-    
-    $.reviewItemList.sections[3].appendItems(physicalTitle);
-    $.reviewItemList.sections[3].appendItems(physical);
+    $.reviewItemList.sections[6].appendItems(physicalTitle);
+    $.reviewItemList.sections[7].appendItems(physical);
   },
   onerror: function(e) {
     console.log(this.responseText);
   }
 });
 
-var createReviewReq = Titanium.Network.createHTTPClient({
-  onload: function(e) {
-    var json = this.responseText;
-    var data = JSON.parse(json);
-    Alloy.createController("index").getView("index").open();
-  },
-  onerror: function(e) {
-    console.log(this.responseText);
-  }
-});
+// sectionname is neccecairy for making the actual 
+// reviewscore map correctly
+function mapReviewForm(reviewFormSection, sectionName) {
+  var section = [];
+  for(var i = 0; i < reviewFormSection.length; i++) {
+    review[sectionName].scores.push(0);
+    section.push({
+      itemTitle: {
+        text: reviewFormSection[i]
+      }
+    });
+    if(i % 2 === 0) section[i].template = "reviewItemOdd";
+  };
 
-// TODO: make for loop
-function mapReviewForm(reviewFormSection) {
-  var index = 0;
-  var section = _.map(reviewFormSection, function(reviewItem) {
-    review.personality.scores.push(0);
-    index++;
-    
-    if(index % 2 !== 0) {
-      return {
-        "itemTitle": {
-          text: reviewItem
-        },
-        template: "reviewItemOdd"
-      };
-    }else {
-      return {
-        "itemTitle": {
-          text: reviewItem
-        },
-      };
-    }
-    
-  });
-  
   return section;
 }
 
 // this needs to change the number after the score
 function changeScore(e) {
-  if(e.sectionIndex === 0) {
+  console.log(this);
+  if(e.sectionIndex === 1) {
     review.personality.scores[e.itemIndex] = 
         Math.round(this.getValue());
   }
   
-  if(e.sectionIndex === 1) {
+  if(e.sectionIndex === 3) {
     review.technique.scores[e.itemIndex] = 
         Math.round(this.getValue());
   }
   
-  if(e.sectionIndex === 2) {
+  if(e.sectionIndex === 5) {
     review.tactics.scores[e.itemIndex] = 
         Math.round(this.getValue());
   }
   
-  if(e.sectionIndex === 3) {
+  if(e.sectionIndex === 7) {
     review.physical.scores[e.itemIndex] = 
         Math.round(this.getValue());
   }
 }
-
-
 
 function createReview(e) {
   review.personality.avg = average(review.personality.scores);
@@ -142,10 +114,7 @@ function createReview(e) {
   review.technique.avg = average(review.technique.scores);
   review.physical.avg = average(review.physical.scores);
   
-  var data = {json: JSON.stringify(review)};
-  createReviewReq.open("POST", Alloy.Globals.url + "/api/review/create/");
-  createReviewReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
-  createReviewReq.send(data);
+  Alloy.createController("sendReview", review).getView("sendReview").open();
 }
 
 function average(numbers) {
@@ -159,7 +128,7 @@ function average(numbers) {
       count++;
     }
   }
-  var avg = sum / count;
+  var avg = Math.round((sum / count) * 100) /100;
   return avg;
 }
 

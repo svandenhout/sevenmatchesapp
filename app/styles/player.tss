@@ -1,4 +1,3 @@
-
-".container" : {
-  
+".playerInfo": {
+  backgroundColor: "#F0EEED"
 }

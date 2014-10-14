@@ -1,25 +1,18 @@
-"#teamName" : {
-  left: 0,
-  width: "50%"
-},
-
-"#teamInfo" : {
-  right: 0,
-  width: "50%"
+"#name" : {
+  top: "8dp",
+  left: "8dp"
 },
 
 "#players" : {
   left: "8dp",
-  top: "5dp"
+  top: "8dp"
 },
 
 "#keepers" : {
   left: "8dp",
-  top: "22dp"
+  top: "30dp"
 },
 
-"#smLogo" : {
-  width: 186,
-  height: 53,
-  top: 100
+"#teamItem" : {
+  height: "70dp"
 }

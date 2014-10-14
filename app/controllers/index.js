@@ -16,7 +16,7 @@ var teamsReq = Titanium.Network.createHTTPClient({
         players: {text: "spelers: " + teams[i].players.length},
         keepers: {text: "keepers: " + teams[i].keepers.length},
       });
-      if(i & 1 !== 0) items[i].template = "teamItemOdd";
+      if(i % 2 === 0) items[i].template = "teamItemOdd";
     };
     
     $.teamList.sections[0].appendItems(items);
