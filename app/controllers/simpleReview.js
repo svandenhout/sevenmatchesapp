@@ -13,7 +13,7 @@ var review = {
   },
   physical: {
     scores: []
-  },
+  }
 };
 
 var reviewFormReq = Titanium.Network.createHTTPClient({
@@ -21,10 +21,19 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
     var json = this.responseText;
     var reviewForm = JSON.parse(json);
     var simple = [
-      {itemTitle: {text: reviewForm.simple[0]}, template: "reviewItemOdd"},
-      {itemTitle: {text: reviewForm.simple[1]}},
-      {itemTitle: {text: reviewForm.simple[2]}, template: "reviewItemOdd"},
-      {itemTitle: {text: reviewForm.simple[3]}}
+      {
+        itemTitle: {text: reviewForm.simple[0]},
+        score: {text: "0"}, template: "reviewItemOdd"
+      }, {
+        itemTitle: {text: reviewForm.simple[1]},
+        score: {text: "0"}
+      }, {
+        itemTitle: {text: reviewForm.simple[2]},
+        score: {text: "0"}, template: "reviewItemOdd"
+      }, {
+        itemTitle: {text: reviewForm.simple[3]},
+        score: {text: "0"}
+      }
     ];
     
     review.personality.scores.push(0);
@@ -33,7 +42,6 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
     review.physical.scores.push(0);
     
     $.reviewItemList.sections[0].appendItems(simple);
-
   },
   onerror: function(e) {
     console.log(this.responseText);
@@ -42,32 +50,29 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
 
 // this needs to change the number after the score
 function changeScore(e) {
-  if(e.sectionIndex === 1) {
-    review.personality.scores[e.itemIndex] = 
-        Math.round(this.getValue());
-  }
+  var item = $.reviewItemList.sections[0].items[e.itemIndex];
+  item.score.text = Math.round(this.getValue() * 100) / 100;
+  console.log(item);
+  $.reviewItemList.sections[0].updateItemAt(e.itemIndex, item);
   
-  if(e.sectionIndex === 3) {
-    review.technique.scores[e.itemIndex] = 
-        Math.round(this.getValue());
-  }
+  if(e.itemIndex === 0) review.personality.scores[0] = 
+      Math.round(this.getValue());
+      
+  if(e.itemIndex === 1) review.technique.scores[0] = 
+      Math.round(this.getValue());
   
-  if(e.sectionIndex === 5) {
-    review.tactics.scores[e.itemIndex] = 
-        Math.round(this.getValue());
-  }
+  if(e.itemIndex === 2) review.tactics.scores[0] = 
+      Math.round(this.getValue());
   
-  if(e.sectionIndex === 7) {
-    review.physical.scores[e.itemIndex] = 
-        Math.round(this.getValue());
-  }
+  if(e.itemIndex === 3) review.physical.scores[0] = 
+      Math.round(this.getValue());
 }
 
 function createReview(e) {
-  review.personality.avg = average(review.personality.scores);
-  review.tactics.avg = average(review.tactics.scores);
-  review.technique.avg = average(review.technique.scores);
-  review.physical.avg = average(review.physical.scores);
+  review.personality.avg = review.personality.scores[0];
+  review.tactics.avg = review.tactics.scores[0];
+  review.technique.avg = review.technique.scores[0];
+  review.physical.avg = review.physical.scores[0];
   
   Alloy.createController("sendReview", review).getView("sendReview").open();
 }
