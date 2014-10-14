@@ -23,16 +23,14 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
     var simple = [
       {
         itemTitle: {text: reviewForm.simple[0]},
-        score: {text: "0"}, template: "reviewItemOdd"
+        template: "reviewItemOdd"
       }, {
         itemTitle: {text: reviewForm.simple[1]},
-        score: {text: "0"}
       }, {
         itemTitle: {text: reviewForm.simple[2]},
-        score: {text: "0"}, template: "reviewItemOdd"
+        template: "reviewItemOdd"
       }, {
-        itemTitle: {text: reviewForm.simple[3]},
-        score: {text: "0"}
+        itemTitle: {text: reviewForm.simple[3]}
       }
     ];
     
@@ -50,10 +48,9 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
 
 // this needs to change the number after the score
 function changeScore(e) {
-  var item = $.reviewItemList.sections[0].items[e.itemIndex];
-  item.score.text = Math.round(this.getValue() * 100) / 100;
-  console.log(item);
-  $.reviewItemList.sections[0].updateItemAt(e.itemIndex, item);
+  // var item = $.reviewItemList.sections[0].items[e.itemIndex];
+  // item.score.text = Math.round(this.getValue()); // Math.round(this.getValue() * 100) / 100;
+  // $.reviewItemList.sections[0].updateItemAt(e.itemIndex, item);
   
   if(e.itemIndex === 0) review.personality.scores[0] = 
       Math.round(this.getValue());

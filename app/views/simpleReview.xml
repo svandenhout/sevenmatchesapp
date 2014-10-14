@@ -10,13 +10,11 @@
         <ItemTemplate id="reviewItem" name="reviewItem" bindId="reviewItem">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
           <Slider onChange="changeScore" min="1" max="10" value="0" />
-          <Label class="largeLightLabel" id="scoreLabel" bindId="score"></Label>
         </ItemTemplate>
         
         <ItemTemplate id="reviewItem" name="reviewItemOdd" bindId="reviewItem">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
           <Slider onChange="changeScore" min="1" max="10" value="0" />
-          <Label class="largeLightLabel" id="scoreLabel" bindId="score"></Label>
         </ItemTemplate>
       </Templates>
       

@@ -79,8 +79,7 @@ function mapReviewForm(reviewFormSection, sectionName) {
   for(var i = 0; i < reviewFormSection.length; i++) {
     review[sectionName].scores.push(0);
     section.push({
-      itemTitle: {text: reviewFormSection[i]},
-      score: {text: 0}
+      itemTitle: {text: reviewFormSection[i]}
     });
     if(i % 2 === 0) section[i].template = "reviewItemOdd";
   };
@@ -90,39 +89,29 @@ function mapReviewForm(reviewFormSection, sectionName) {
 
 // this needs to change the number after the score
 function changeScore(e) {
+  // var item = $.reviewItemList.sections[e.sectionIndex].items[e.itemIndex];
+  // item.score.text = Math.round(this.getValue());
+  // $.reviewItemList.sections[e.sectionIndex].updateItemAt(e.itemIndex, item);
+  
   if(e.sectionIndex === 1) {
-    var item = $.reviewItemList.sections[e.sectionIndex].items[e.itemIndex];
-    item.score.text = Math.round(this.getValue() * 100) / 100;
-    $.reviewItemList.sections[e.sectionIndex].updateItemAt(e.itemIndex, item);
-    review.personality.scores[e.itemIndex] = 
+    review.personality.scores[e.itemIndex] =
         Math.round(this.getValue());
   }
   
   if(e.sectionIndex === 3) {
-    var item = $.reviewItemList.sections[e.sectionIndex].items[e.itemIndex];
-    item.score.text = Math.round(this.getValue() * 100) / 100;
-    $.reviewItemList.sections[e.sectionIndex].updateItemAt(e.itemIndex, item);
-    review.technique.scores[e.itemIndex] = 
+    review.technique.scores[e.itemIndex] =
         Math.round(this.getValue());
   }
   
   if(e.sectionIndex === 5) {
-    var item = $.reviewItemList.sections[e.sectionIndex].items[e.itemIndex];
-    item.score.text = Math.round(this.getValue() * 100) / 100;
-    $.reviewItemList.sections[e.sectionIndex].updateItemAt(e.itemIndex, item);
-    review.tactics.scores[e.itemIndex] = 
+    review.tactics.scores[e.itemIndex] =
         Math.round(this.getValue());
   }
   
   if(e.sectionIndex === 7) {
-    var item = $.reviewItemList.sections[e.sectionIndex].items[e.itemIndex];
-    item.score.text = Math.round(this.getValue() * 100) / 100;
-    $.reviewItemList.sections[e.sectionIndex].updateItemAt(e.itemIndex, item);
-    review.physical.scores[e.itemIndex] = 
+    review.physical.scores[e.itemIndex] =
         Math.round(this.getValue());
   }
-  
-  
 }
 
 function createReview(e) {
