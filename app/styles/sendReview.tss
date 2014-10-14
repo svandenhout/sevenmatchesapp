@@ -3,10 +3,10 @@
 }
 
 "#summary" : {
-  color: "#336699",
+  color: "#777ebc",
   width: "90%",
   height: "200dp",
-  borderColor: "#777FBC",
+  borderColor: "#777ebc",
   borderWidth: 1,
 }
 
