@@ -9,22 +9,14 @@
       <Templates>
         <ItemTemplate id="reviewItem" name="reviewItem" bindId="reviewItem">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
-          <Slider 
-            class="scoreSlider" 
-            onChange="changeScore" 
-            min="1" max="10" value="0" width="100%" 
-          />
-          
+          <Slider onChange="changeScore" min="1" max="10" value="0" />
+          <Label class="largeLightLabel" id="scoreLabel" bindId="score"></Label>
         </ItemTemplate>
         
         <ItemTemplate class="odd" id="reviewItem" name="reviewItemOdd" bindId="reviewItemOdd">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
-          <Slider 
-            class="scoreSlider" 
-            onChange="changeScore"
-            min="1" max="10" value="0" width="100%" 
-          />
-          
+          <Slider onChange="changeScore" min="1" max="10" value="0" />
+          <Label class="largeLightLabel" id="scoreLabel" bindId="score"></Label>
         </ItemTemplate>
         
         <ItemTemplate name="reviewListHeader">

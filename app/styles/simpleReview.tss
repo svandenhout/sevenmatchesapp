@@ -1,7 +1,3 @@
-".scoreSlider" : {
-  bottom: "10dp" 
-}
-
 "#reviewItem" : {
   height: "70dp"
 }

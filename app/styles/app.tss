@@ -91,6 +91,17 @@
   borderRadius: 5
 },
 
+"#scoreLabel" : {
+  right: 0,
+},
+
+"Slider" : {
+  bottom: "10dp",
+  left: 0,
+  width: "80%"
+}
+
+
 ".footerBtn" : {
   width: "100%",
   height: "40dp",
