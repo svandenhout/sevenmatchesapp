@@ -51,7 +51,7 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
     $.reviewItemList.sections[2].setItems(tactics);
     
     var physical = _.map(reviewForm.physical, function(reviewItem) {
-      review.physical.scores.push(null); 
+      review.physical.scores.push(null);
       return {
         "itemScore": {id: reviewItem},
         "itemTitle": {text: reviewItem}
