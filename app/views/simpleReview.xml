@@ -9,12 +9,12 @@
       <Templates>
         <ItemTemplate id="reviewItem" name="reviewItem" bindId="reviewItem">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
-          <Slider onChange="changeScore" min="1" max="10" value="0" />
+          <Slider onChange="changeScore" min="0" minRange="1" max="10" value="0"/>
         </ItemTemplate>
         
         <ItemTemplate id="reviewItem" name="reviewItemOdd" bindId="reviewItem">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
-          <Slider onChange="changeScore" min="1" max="10" value="0" />
+          <Slider onChange="changeScore" min="0" minRange="1" max="10" value="0"/>
         </ItemTemplate>
       </Templates>
       

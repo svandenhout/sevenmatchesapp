@@ -41,7 +41,7 @@
     fontSize: "28dp",
     fontFamily: "OpenSans-Bold"
   }
-}
+},
 
 ".largeLightLabel" : {
   font: {

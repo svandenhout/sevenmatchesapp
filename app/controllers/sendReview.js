@@ -1,16 +1,17 @@
 var args = arguments[0] || {};
+var avg = average([
+  args.personality.avg,
+  args.technique.avg,
+  args.tactics.avg,
+  args.physical.avg
+]);
 
 $.personalityAvg.text = args.personality.avg;
 $.techniqueAvg.text = args.technique.avg;
 $.tacticsAvg.text = args.tactics.avg;
 $.physicalAvg.text = args.physical.avg;
 
-$.avg.text = "Totaalscore " + average([
-  args.personality.avg,
-  args.technique.avg,
-  args.tactics.avg,
-  args.physical.avg
-]);
+$.avg.text = "Totaalscore " + avg;
 
 var createReviewReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
@@ -25,6 +26,8 @@ var createReviewReq = Titanium.Network.createHTTPClient({
 
 function sendReview(e) {
   args.feedback = $.summary.getValue();
+  args.avg = avg;
+  
   var data = {json: JSON.stringify(args)};
   createReviewReq.open("POST", Alloy.Globals.url + "/api/review/create/");
   createReviewReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
