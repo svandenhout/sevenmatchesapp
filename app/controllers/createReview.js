@@ -64,8 +64,6 @@ var reviewFormReq = Titanium.Network.createHTTPClient({
     
     $.reviewItemList.sections[6].appendItems(physicalTitle);
     $.reviewItemList.sections[7].appendItems(physical);
-    
-    console.log($.Winnersinstelling);
   },
   onerror: function(e) {
     console.log(this.responseText);
