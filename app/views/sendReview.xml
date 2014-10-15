@@ -25,5 +25,10 @@
     <Button class="footerBtn" onClick="sendReview">
       Beoordeling Opslaan
     </Button>
+    
+    <Menu platform="android">
+      <MenuItem title="Uitloggen" onClick="Alloy.Globals.logOut"
+          showAsAction="Ti.Android.SHOW_AS_ACTION_IF_ROOM" />
+    </Menu>
 	</Window>
 </Alloy>

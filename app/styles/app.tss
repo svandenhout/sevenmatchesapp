@@ -5,6 +5,8 @@
 
 ".header" : {
   height: "50dp",
+  width: "186dp",
+  height: "54dp",
   backgroundImage: "/images/header-iphone.png"
 },
 

@@ -1,5 +1,5 @@
 <Alloy>
-  <Window class="container">
+  <Window id="login" class="container">
     <View class="header">
       <Label class="largeBoldLabel">login</Label>
     </View>
