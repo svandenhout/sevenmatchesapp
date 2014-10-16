@@ -1,5 +1,4 @@
-var loginReq = Titanium.Network.createHTTPClient({
-  onload: function(e) {
+var loginLoad = function(e) {
     var json = this.responseText;
     var response = JSON.parse(json);
     if(response.access_token) {
@@ -13,25 +12,30 @@ var loginReq = Titanium.Network.createHTTPClient({
     }else {
       alert("No access token");
     }
-  },
-  onerror: function(e) {
+    this.abort();
+};
+
+var loginError = function(e) {
     var json = this.responseText;
     var response = JSON.parse(json);
     if(response.email) alert(response.email);
     if(response.password) alert(response.password);
-  },
-});
+    this.abort();
+};
 
 function login(e) {
   if($.emailInput.value != "" && $.passwordInput.value != "") {
+    loginReq = Titanium.Network.createHTTPClient();
+    loginReq.onload = loginLoad;
+    loginReq.onerror = loginError;
     loginReq.open("POST", Alloy.Globals.url + "/api/oauth/token");
-
+    loginReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     var params = {
       grant_type: "password",
       client_id: "sevenmatches-android",
       client_secret: "S3v3nm4tch3s8774!",
-      username: $.emailInput.value,
-      password: $.passwordInput.value
+      username: $.emailInput.getValue(),
+      password: $.passwordInput.getValue()
     };
     
     loginReq.send(params);

@@ -30,6 +30,8 @@ function showTeamDetail(e) {
   Alloy.createController("team", teams[e.itemIndex]).getView("team").open();
 }
 
+// $.index.invalidateOptionsMenu();
+
 if(Alloy.Globals.token === "false") {
   Alloy.createController("login").getView("login").open();
 }else {

@@ -6,26 +6,29 @@
 },
 
 "#emailInput": {
-  color:"#777ebc",
-  top:30,
-  width:300,
-  height:40,
-  hintText:"Email",
-  borderColor: "#777ebc",
-  borderWidth: 2,
-  borderRadius: 5,
+  hintText:"email",
+  keyboardType : Ti.UI.KEYBOARD_EMAIL,
+  returnKeyType : Ti.UI.RETURNKEY_NEXT,
 },
 
 "#passwordInput": {
+  hintText:"password",
+  passwordMask:true,
+  returnKeyType : Ti.UI.RETURNKEY_DONE,
+},
+
+"TextField" : {
   color:"#777ebc",
   top:30,
   width:300,
   height:40,
-  hintText:"Password",
-  passwordMask:true,
   borderColor: "#777ebc",
   borderWidth: 2,
   borderRadius: 5,
+  autocapitalization: Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE,
+  clearButtonMode : Ti.UI.INPUT_BUTTONMODE_ONFOCUS,
+  autocorrect: false,
+  paddingLeft: "2dp"
 },
 
 "#loginBtn": {

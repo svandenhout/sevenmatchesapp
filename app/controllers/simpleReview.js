@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 
 var review = {
+  formId: args.formId,
   playerId: args._id,
   personality: {
     scores: []
@@ -78,7 +79,7 @@ function average(numbers) {
   var sum = 0;
   var count = 0;
   for(var i = 0; i < numbers.length; i++) {
-    if(numbers[i] == 0) {
+    if(numbers[i] < 1) {
       continue;
     }else {
       sum += numbers[i];

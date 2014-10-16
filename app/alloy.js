@@ -11,6 +11,11 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 Alloy.Globals.token = Ti.App.Properties.getString("access_token", "false");
+Alloy.Globals.logOut = function(e) {
+  Ti.App.Properties.removeProperty("access_token");
+  Alloy.createController("login").getView("login").open();
+};
+
 if(Titanium.Platform.model === "Simulator") {
   Alloy.Globals.url = "http://localhost:3000";
 }else {

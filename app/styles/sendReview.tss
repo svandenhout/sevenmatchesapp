@@ -8,6 +8,7 @@
   height: "200dp",
   borderColor: "#777ebc",
   borderWidth: 1,
+  returnKeyType : Ti.UI.RETURNKEY_DONE
 }
 
 "#personalityAvg" : {

@@ -9,13 +9,13 @@
       <Templates>
         <ItemTemplate id="reviewItem" name="reviewItem" bindId="reviewItem">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
-          <Slider onChange="changeScore" min="1" max="10" value="0"/>
+          <Slider onChange="changeScore" min="0" minRange="1" max="10" value="0" />
           <!--<Label class="largeLightLabel" id="scoreLabel" bindId="score"></Label>-->
         </ItemTemplate>
         
         <ItemTemplate class="odd" id="reviewItem" name="reviewItemOdd" bindId="reviewItemOdd">
           <Label id="itemTitle" class="mediumBoldLabel" bindId="itemTitle" />
-          <Slider onChange="changeScore" min="1" max="10" value="0"/>
+          <Slider onChange="changeScore" min="0" minRange="1" max="10" value="0" />
         </ItemTemplate>
         
         <ItemTemplate name="reviewListHeader">
@@ -41,7 +41,9 @@
       </FooterView>
     </ListView>
     
-    
-    
+    <Menu platform="android">
+      <MenuItem title="Uitloggen" onClick="Alloy.Globals.logOut"
+          showAsAction="Ti.Android.SHOW_AS_ACTION_IF_ROOM" />
+    </Menu>
 	</Window>
 </Alloy>
