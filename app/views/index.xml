@@ -1,18 +1,30 @@
 <Alloy>
 	<Window id="index" class="container">
 	  <View class="header">
-	    <Label class="smallLabel">teams</Label>
+	    <Label class="largeBoldLabel">Teamlijst</Label>
 	  </View>
-		<ListView id="teamList" defaultItemTemplate="teamsTemplate">
+		<ListView id="teamList" defaultItemTemplate="teamItem">
 		  <Templates>
-        <ItemTemplate class="listItem" name="teamsTemplate">
+        <ItemTemplate id="teamItem" name="teamItem">
           <View onClick="showTeamDetail">
-            <View id="teamName">
-              <Label class="mediumLabel" bindId="name"/>
+            <View class="leftView">
+              <Label id="name" class="mediumBoldLabel" bindId="name"/>
             </View>
-            <View id="teamInfo">
-              <Label id="players" class="smallLabel" bindId="players" />
-              <Label id="keepers" class="smallLabel" bindId="keepers" />
+            <View class="rightView">
+              <Label id="players" class="mediumBoldLabel" bindId="players" />
+              <Label id="keepers" class="mediumBoldLabel" bindId="keepers" />
+            </View>
+          </View>
+        </ItemTemplate>
+        
+        <ItemTemplate id="teamItem" class="odd" name="teamItemOdd">
+          <View onClick="showTeamDetail">
+            <View class="leftView">
+              <Label id="name" class="mediumBoldLabel" bindId="name"/>
+            </View>
+            <View class="rightView">
+              <Label id="players" class="mediumBoldLabel" bindId="players" />
+              <Label id="keepers" class="mediumBoldLabel" bindId="keepers" />
             </View>
           </View>
         </ItemTemplate>

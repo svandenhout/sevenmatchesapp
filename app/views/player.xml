@@ -1,15 +1,15 @@
 <Alloy>
 	<Window id="player" class="container">
 	  <View class="header">
-      <Label class="smallLabel">speler</Label>
+      <Label class="largeBoldLabel">speler</Label>
     </View>
 	  <View class="playerInfo">
-	    <ImageView class="playerImage"></ImageView>
-	    <View class="playerInfoTextContainer">
-	      <Label class="playerInfoText" id="firstName" />
-        <Label class="playerInfoText" id="lastName" />
-	    </View>
-	  </View>
+      <ImageView class="playerImage"></ImageView>
+      <View class="playerInfoTextContainer">
+        <Label class="mediumLightLabel" id="playerName" bindId="name" />
+        <Label class="mediumMediumlabel" id="playerType" bindId="playerType" />
+      </View>
+    </View>
 	  <Button onClick="reviews" class="fullScreenBtn">Beoordelingen</Button>
     
 	</Window>

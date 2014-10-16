@@ -1,17 +1,33 @@
 <Alloy>
 	<Window id="reviews" class="container">
 	  <View class="header">
-      <Label class="smallLabel">beoordelingen</Label>
+      <Label class="largeBoldLabel">beoordelingen</Label>
+    </View>
+    <View class="playerInfo">
+      <ImageView class="playerImage"></ImageView>
+      <View class="playerInfoTextContainer">
+        <Label class="mediumLightLabel" id="playerName" bindId="name" />
+        <Label class="mediumMediumlabel" id="playerType" bindId="playerType" />
+      </View>
     </View>
 	  <ListView id="reviewList" defaultItemTemplate="reviews">
       
       <Templates>
-        <ItemTemplate name="reviews">
+        <ItemTemplate id="reviewItem" name="reviews">
           <View class="leftView" id="reviewDate">
-            <Label class="mediumLabel" bindId="date"></Label>
+            <Label class="mediumLightLabel" bindId="date"></Label>
           </View>
           <View class="rightView" id="reviewScore">
-            <Label class="mediumLabel" bindId="score"></Label>
+            <Label class="mediumBoldLabel" bindId="score"></Label>
+          </View>
+        </ItemTemplate>
+        
+        <ItemTemplate id="reviewItem" class="odd" name="reviewsEven">
+          <View class="leftView" id="reviewDate">
+            <Label class="mediumLightLabel" bindId="date"></Label>
+          </View>
+          <View class="rightView" id="reviewScore">
+            <Label class="mediumBoldLabel" bindId="score"></Label>
           </View>
         </ItemTemplate>
       </Templates>
@@ -20,7 +36,8 @@
       
     </ListView>
     
-    <Button class="footerBtn" onClick="newReview">Nieuwe Beoordeling</Button>
-	
+    <Button class="footerBtn" onClick="newSimpleReview">Simpele beoordeling</Button>
+    <Button class="footerBtn" onClick="newReview">Uigebreide beoordeling</Button>
+
 	</Window>
 </Alloy>

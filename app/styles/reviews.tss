@@ -1,3 +1,15 @@
 "#reviewList" : {
-  bottom: "-40dp"
+  bottom: "-80dp"
+}
+
+"#reviewItem": {
+  height: "30dp"
+}
+
+".playerInfo": {
+  backgroundColor: "#F0EEED"
+}
+
+"#simpleReviewBtn" : {
+  
 }

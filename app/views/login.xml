@@ -1,7 +1,7 @@
 <Alloy>
   <Window class="container">
     <View class="header">
-      <Label class="smallLabel">login</Label>
+      <Label class="largeBoldLabel">login</Label>
     </View>
     <ImageView class="smLogo"/>
     <TextField id="emailInput"></TextField>

@@ -6,24 +6,24 @@
 },
 
 "#emailInput": {
-  color:"#336699",
+  color:"#777ebc",
   top:30,
   width:300,
   height:40,
   hintText:"Email",
-  borderColor: "#CCCCCC",
+  borderColor: "#777ebc",
   borderWidth: 2,
   borderRadius: 5,
 },
 
 "#passwordInput": {
-  color:"#336699",
+  color:"#777ebc",
   top:30,
   width:300,
   height:40,
   hintText:"Password",
   passwordMask:true,
-  borderColor: "#CCCCCC",
+  borderColor: "#777ebc",
   borderWidth: 2,
   borderRadius: 5,
 },

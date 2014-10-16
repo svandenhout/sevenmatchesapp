@@ -1,0 +1,31 @@
+".avgSectionView" : {
+  height: "20dp"
+}
+
+"#summary" : {
+  color: "#777ebc",
+  width: "90%",
+  height: "200dp",
+  borderColor: "#777ebc",
+  borderWidth: 1,
+}
+
+"#personalityAvg" : {
+  right: "25dp"
+}
+
+"#techniqueAvg" : {
+  right: "25dp"
+}
+
+"#tacticsAvg" : {
+  right: "25dp"
+}
+
+"#physicalAvg" : {
+  right: "25dp"
+}
+
+"#leftLabel" : {
+  left: "25dp"
+}
