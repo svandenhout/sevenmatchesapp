@@ -1,5 +1,9 @@
 <Alloy>
 	<Window id="player" class="container">
+	  <View platform="ios" class="topHeader">
+      <Button class="back" onClick="previous" title="vorige" />
+      <Button class="logout" onClick="Alloy.Globals.logOut" title="uitloggen" />
+    </View>
 	  <View class="header">
       <Label class="largeBoldLabel">speler</Label>
     </View>

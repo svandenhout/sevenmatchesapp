@@ -49,25 +49,32 @@ var keeperReq = Titanium.Network.createHTTPClient({
 
 function showPlayerDetail(e) {
   var player = players[e.itemIndex];
+  var keeper = keepers[e.itemIndex];
   // set the correct review form on a player
   
   // sectionIndex 0 is playersection of list
   if(e.sectionIndex === 0) {
     player.formId = args.playerForm;
-    Alloy.createController("player", players[e.itemIndex]).getView("player").open();
+    player.back = args;
+    Alloy.createController("player", player).getView("player").open();
   }
   
   // sectionIndex 1 is keepersection of list
   if(e.sectionIndex === 1) {
-    player.formId = args.keeperForm;
-    Alloy.createController("player", keepers[e.itemIndex]).getView("player").open();
+    keeper.formId = args.keeperForm;
+    keeper.back = args;
+    Alloy.createController("player", keeper).getView("player").open();
   }
 };
 
-playerReq.open("GET", Alloy.Globals.url + "/api/players/getbyids?players=" + getPlayers);
+function previous(e) {
+  Alloy.createController("index").getView("index").open();
+};
+
+playerReq.open("GET", Alloy.Globals.url + "/players/getbyids?players=" + getPlayers);
 playerReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 playerReq.send();
 
-keeperReq.open("GET", Alloy.Globals.url + "/api/players/getbyids?players=" + getKeepers);
+keeperReq.open("GET", Alloy.Globals.url + "/players/getbyids?players=" + getKeepers);
 keeperReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 keeperReq.send();

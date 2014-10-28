@@ -28,7 +28,7 @@ function login(e) {
     loginReq = Titanium.Network.createHTTPClient();
     loginReq.onload = loginLoad;
     loginReq.onerror = loginError;
-    loginReq.open("POST", Alloy.Globals.url + "/api/oauth/token");
+    loginReq.open("POST", Alloy.Globals.url + "/oauth/token");
     loginReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     var params = {
       grant_type: "password",

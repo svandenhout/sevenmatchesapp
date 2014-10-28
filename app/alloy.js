@@ -17,9 +17,9 @@ Alloy.Globals.logOut = function(e) {
 };
 
 if(Titanium.Platform.model === "Simulator") {
-  Alloy.Globals.url = "http://localhost:3000";
+  Alloy.Globals.url = "http://localhost:4000";
 }else {
-  Alloy.Globals.url = "http://sevenmatchestest.herokuapp.com";
+  Alloy.Globals.url = "https://api.sevenmatches.com";
 }
 
 if(Alloy.Globals.token !== "false") {

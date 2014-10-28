@@ -2,8 +2,8 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>nl.sevenmatches</id>
     <name>TrainersApp</name>
-    <version>1.00</version>
-    <publisher>stevenvandenhout</publisher>
+    <version>1.03</version>
+    <publisher>SevenMatches BV</publisher>
     <url>http://sevenmatches.com</url>
     <description>undefined</description>
     <copyright>2014 by stevenvandenhout</copyright>
@@ -38,7 +38,9 @@
             </dict>
         </plist>
     </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest android:versionCode="103" android:versionName="1.0.3"/>
+    </android>
     <mobileweb>
         <precache/>
         <splash>

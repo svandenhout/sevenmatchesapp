@@ -1,5 +1,8 @@
 <Alloy>
 	<Window id="index" class="container">
+	  <View platform="ios" class="topHeader">
+	    <Button class="logout" onClick="Alloy.Globals.logOut" title="uitloggen" />
+	  </View>
 	  <View class="header">
 	    <Label class="largeBoldLabel">Teamlijst</Label>
 	  </View>
