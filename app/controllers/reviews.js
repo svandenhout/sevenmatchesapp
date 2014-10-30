@@ -35,7 +35,7 @@ var reviewsReq = Titanium.Network.createHTTPClient({
 });
 
 function previous(e) {
-  Alloy.createController("player", args).getView("player").open(); 
+  Alloy.createController("player", args).getView("player").open();
 };
 
 function newReview(e) {

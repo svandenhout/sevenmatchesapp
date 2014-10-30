@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>nl.sevenmatches</id>
-    <name>TrainersApp</name>
+    <id>nl.sevenmatches.TrainersApp</id>
+    <name>SevenMatches</name>
     <version>1.03</version>
     <publisher>SevenMatches BV</publisher>
     <url>http://sevenmatches.com</url>
-    <description>undefined</description>
+    <description>Met gepaste trots presenteren wij de SevenMatches Trainersapp! Met deze app kunt u als SevenMatches Trainer eenvoudig en snel uw teamlijst en spelers inzien, spelersinformatie raadplegen en aan het veld uw spelersbeoordelingen doen.
+
+Overal makkelijk beoordelen:
+Met de SevenMatches Trainersapp kunt u aan het veld, of waar u maar wilt uw spelers beoordelen en oude beoordelingen inzien zelfs als u deze direct via het platform heeft gedaan. Met de SevenMatches Trainersapp heeft u overal toegang tot alle team- en speler informatie.
+
+Functies:
+• Mobiel toegang tot het SevenMatches platform via uw smartphone of tablet.
+• Inzicht in uw teams en speler gegevens.
+• Mobiel, dus aan het veld uw spelers beoordelen volgens de SevenMatches methode.
+• Stuur direct vanuit de app berichten aan uw team of aan individuele spelers.
+
+Gebruik:
+U dient eenmalig, of na elke herstart van uw telefoon in te loggen door gebruik te maken van uw SevenMatches accountgegevens.
+
+Let op:  Voor deze app heeft u een SevenMatches account nodig!</description>
     <copyright>2014 by stevenvandenhout</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
