@@ -11,7 +11,7 @@
       <Templates>
         <ItemTemplate id="playerItem" name="playerItem">
           <View class="playerInfo" onClick="showPlayerDetail">
-            <ImageView class="playerImage"></ImageView>
+            <ImageView class="playerImage" bindId="playerImage"></ImageView>
             <View class="playerInfoTextContainer">
               <Label class="mediumLightLabel" id="playerName" bindId="name" />
               <Label class="mediumMediumlabel" id="playerType" bindId="playerType" />
@@ -21,7 +21,7 @@
         
         <ItemTemplate id="playerItem" class="odd" name="playerItemEven">
           <View class="playerInfo" onClick="showPlayerDetail">
-            <ImageView class="playerImage"></ImageView>
+            <ImageView class="playerImage" bindId="playerImage"></ImageView>
             <View class="playerInfoTextContainer">
               <Label class="mediumLightLabel" id="playerName" bindId="name" />
               <Label class="mediumMediumlabel" id="playerType" bindId="playerType" />

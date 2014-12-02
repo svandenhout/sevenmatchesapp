@@ -15,6 +15,7 @@ var playerReq = Titanium.Network.createHTTPClient({
     for(var i = 0; i < players.length; i++) {
       items.push({
         name: {text: players[i].name.first + " " + players[i].name.last},
+        playerImage: {image: players[i].imageCollection.profileImage},
         playerType: {text: "Speler"}
       });
       if(i % 2 === 0) items[i].template = "playerItemEven";
@@ -36,6 +37,7 @@ var keeperReq = Titanium.Network.createHTTPClient({
     for(var i = 0; i < keepers.length; i++) {
       items.push({
         name: {text: keepers[i].name.first + " " + keepers[i].name.last},
+        playerImage: {image: keepers[i].imageCollection.profileImage},
         playerType: {text: "Keeper"}
       });
       if(i % 2 === 0) items[i].template = "playerItemEven";

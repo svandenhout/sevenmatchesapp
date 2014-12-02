@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 
 $.playerName.text = args.name.first + " " + args.name.last;
+$.playerImage.image = args.imageCollection.profileImage;
 if(args.keeperId) $.playerType.text = "Keeper";
 if(args.formId) $.playerType.text = "Speler";
 

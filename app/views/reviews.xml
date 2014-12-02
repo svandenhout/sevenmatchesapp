@@ -8,7 +8,7 @@
       <Label class="largeBoldLabel">beoordelingen</Label>
     </View>
     <View class="playerInfo">
-      <ImageView class="playerImage"></ImageView>
+      <ImageView class="playerImage" id="playerImage"></ImageView>
       <View class="playerInfoTextContainer">
         <Label class="mediumLightLabel" id="playerName" bindId="name" />
         <Label class="mediumMediumlabel" id="playerType" bindId="playerType" />
