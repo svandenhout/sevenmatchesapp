@@ -5,13 +5,31 @@
 
 ".header" : {
   height: "50dp",
-  width: "186dp",
+  width: "100%",
+  backgroundTopCap: "50dp",
+  backgroundLeftCap: "186dp",
   height: "54dp",
   backgroundImage: "/images/header-iphone.png"
 },
 
-".header[platform=ios]" : {
+".topHeader" : {
   top: "18dp",
+  height: "40dp",
+  backgroundColor: "#F0EEED"
+},
+
+".logout" : {
+  right: "10dp",
+  top: "4dp",
+  height: "30dp",
+  width: "100dp"
+},
+
+".back" : {
+  left: "10dp",
+  top: "4dp",
+  height: "30dp",
+  width: "70dp"
 },
 
 ".odd" : {

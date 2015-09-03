@@ -16,12 +16,12 @@ Alloy.Globals.logOut = function(e) {
   Alloy.createController("login").getView("login").open();
 };
 
-if(Titanium.Platform.model === "Simulator") {
-  Alloy.Globals.url = "http://localhost:3000";
+if(Titanium.Platform.model === "Simulator1") {
+  Alloy.Globals.url = "http://localhost:4000";
 }else {
-  Alloy.Globals.url = "http://sevenmatchestest.herokuapp.com";
+  Alloy.Globals.url = "https://api.sevenmatches.com";
 }
 
 if(Alloy.Globals.token !== "false") {
-  Alloy.Globals.authHeader = "Bearer " + Alloy.Globals.token;
+  Alloy.Globals.authHeader = Alloy.Globals.token;
 }

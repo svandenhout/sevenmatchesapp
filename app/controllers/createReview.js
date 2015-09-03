@@ -4,7 +4,7 @@ var technique = [];
 var tactics = [];
 var physical = [];
 var review = {
-  formId: args.formId,
+  reviewForm: args.formId,
   playerId: args._id,
   personality: {
     scores: []
@@ -117,7 +117,9 @@ function createReview(e) {
   review.tactics.avg = average(review.tactics.scores);
   review.technique.avg = average(review.technique.scores);
   review.physical.avg = average(review.physical.scores);
-  console.log(review);
+  review.simple = false;
+  review.back = args;
+  
   
   Alloy.createController("sendReview", review).getView("sendReview").open();
 }
@@ -137,6 +139,10 @@ function average(numbers) {
   return avg;
 }
 
-reviewFormReq.open("GET", Alloy.Globals.url + "/api/review/form/" + args.formId);
+function previous(e) {
+  Alloy.createController("reviews", args).getView("reviews").open();
+};
+
+reviewFormReq.open("GET", Alloy.Globals.url + "/form/" + args.formId);
 reviewFormReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 reviewFormReq.send();

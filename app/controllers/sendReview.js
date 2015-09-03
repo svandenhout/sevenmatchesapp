@@ -24,12 +24,20 @@ var createReviewReq = Titanium.Network.createHTTPClient({
   }
 });
 
+function previous(e) {
+  if(args.simple) {
+    Alloy.createController("simpleReview", args.back).getView("simpleReview").open();
+  }else {
+    Alloy.createController("createReview", args.back).getView("createReview").open();
+  }
+}
+
 function sendReview(e) {
   args.feedback = $.summary.getValue();
   args.avg = avg;
   
   var data = {json: JSON.stringify(args)};
-  createReviewReq.open("POST", Alloy.Globals.url + "/api/review/create/");
+  createReviewReq.open("POST", Alloy.Globals.url + "/review");
   createReviewReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
   createReviewReq.send(data);
 };

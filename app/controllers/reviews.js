@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 
 $.playerName.text = args.name.first + " " + args.name.last;
+$.playerImage.image = args.imageCollection.profileImage;
 if(args.keeperId) $.playerType.text = "Keeper";
 if(args.formId) $.playerType.text = "Speler";
 
@@ -34,6 +35,10 @@ var reviewsReq = Titanium.Network.createHTTPClient({
   }
 });
 
+function previous(e) {
+  Alloy.createController("player", args).getView("player").open();
+};
+
 function newReview(e) {
   Alloy.createController("createReview", args).getView("createReview").open();
 };
@@ -42,6 +47,6 @@ function newSimpleReview(e) {
   Alloy.createController("simpleReview", args).getView("simpleReview").open();
 }
 
-reviewsReq.open("GET", Alloy.Globals.url + "/api//reviews/all/" + args._id);
+reviewsReq.open("GET", Alloy.Globals.url + "/reviews/user/" + args._id);
 reviewsReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 reviewsReq.send();

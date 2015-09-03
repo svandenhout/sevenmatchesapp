@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>nl.sevenmatches</id>
-    <name>TrainersApp</name>
-    <version>1.00</version>
-    <publisher>stevenvandenhout</publisher>
+    <id>nl.sevenmatches.TrainersApp</id>
+    <name>SevenMatches</name>
+    <version>1.06</version>
+    <publisher>SevenMatches BV</publisher>
     <url>http://sevenmatches.com</url>
-    <description>undefined</description>
-    <copyright>2014 by stevenvandenhout</copyright>
+    <description>updated api calls</description>
+    <copyright>2014 by SevenMatches</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>363f0db2-1a19-44d4-b3b7-dd954f3f6b5a</guid>
+    <guid>5d2c6da5-b47b-4598-9ddd-923c400350fe</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
@@ -38,7 +38,9 @@
             </dict>
         </plist>
     </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest android:versionCode="105" android:versionName="1.0.5"/>
+    </android>
     <mobileweb>
         <precache/>
         <splash>
@@ -51,12 +53,13 @@
     <deployment-targets>
         <target device="android">true</target>
         <target device="blackberry">false</target>
-        <target device="ipad">true</target>
+        <target device="ipad">false</target>
         <target device="iphone">true</target>
         <target device="mobileweb">false</target>
     </deployment-targets>
-    <sdk-version>3.4.0.GA</sdk-version>
+    <sdk-version>4.1.0.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
+    <property name="appc-app-id" type="string">55e80093dddd07f668668a5c</property>
 </ti:app>

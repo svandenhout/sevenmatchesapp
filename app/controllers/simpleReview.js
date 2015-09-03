@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 var review = {
-  formId: args.formId,
+  reviewForm: args.formId,
   playerId: args._id,
   personality: {
     scores: []
@@ -71,6 +71,8 @@ function createReview(e) {
   review.tactics.avg = review.tactics.scores[0];
   review.technique.avg = review.technique.scores[0];
   review.physical.avg = review.physical.scores[0];
+  review.simple = true;
+  review.back = args;
   
   Alloy.createController("sendReview", review).getView("sendReview").open();
 }
@@ -90,6 +92,10 @@ function average(numbers) {
   return avg;
 }
 
-reviewFormReq.open("GET", Alloy.Globals.url + "/api/review/form/simple");
+function previous(e) {
+  Alloy.createController("reviews", args).getView("reviews").open();
+};
+
+reviewFormReq.open("GET", Alloy.Globals.url + "/form/simple");
 reviewFormReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
 reviewFormReq.send();

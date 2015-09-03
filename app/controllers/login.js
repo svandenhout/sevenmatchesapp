@@ -1,12 +1,11 @@
 var loginLoad = function(e) {
     var json = this.responseText;
     var response = JSON.parse(json);
-    if(response.access_token) {
-      Ti.App.Properties.setString("access_token", response.access_token);
-      
+    if(response.token) {
+      Ti.App.Properties.setString("access_token", response.token);
       // set authorisation globals after login
-      Alloy.Globals.token = response.access_token;
-      Alloy.Globals.authHeader = "Bearer " + Alloy.Globals.token;
+      Alloy.Globals.token = response.token;
+      Alloy.Globals.authHeader = Alloy.Globals.token;
       
       Alloy.createController("index").getView("index").open();
     }else {
@@ -28,7 +27,7 @@ function login(e) {
     loginReq = Titanium.Network.createHTTPClient();
     loginReq.onload = loginLoad;
     loginReq.onerror = loginError;
-    loginReq.open("POST", Alloy.Globals.url + "/api/oauth/token");
+    loginReq.open("POST", Alloy.Globals.url + "/user/token");
     loginReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     var params = {
       grant_type: "password",
