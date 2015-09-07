@@ -33,11 +33,12 @@ function previous(e) {
 }
 
 function sendReview(e) {
+  delete args.back;
   args.feedback = $.summary.getValue();
   args.avg = avg;
   
   var data = {json: JSON.stringify(args)};
-  createReviewReq.open("POST", Alloy.Globals.url + "/review");
+  createReviewReq.open("POST", Alloy.Globals.url + "/review?teamId=" + args.teamId);
   createReviewReq.setRequestHeader("Authorization", Alloy.Globals.authHeader);
   createReviewReq.send(data);
 };

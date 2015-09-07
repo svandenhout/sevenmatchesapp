@@ -4,8 +4,8 @@ var technique = [];
 var tactics = [];
 var physical = [];
 var review = {
-  reviewForm: args.formId,
-  playerId: args._id,
+  formId: args.formId,
+  userId: args._id,
   personality: {
     scores: []
   },
@@ -119,7 +119,7 @@ function createReview(e) {
   review.physical.avg = average(review.physical.scores);
   review.simple = false;
   review.back = args;
-  
+  review.teamId = args.teamId;
   
   Alloy.createController("sendReview", review).getView("sendReview").open();
 }

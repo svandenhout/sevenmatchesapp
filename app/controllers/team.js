@@ -6,6 +6,8 @@ var keepers = [];
 var getPlayers = JSON.stringify(args.players);
 var getKeepers = JSON.stringify(args.keepers);
 
+var teamId = args._id;
+
 var playerReq = Titanium.Network.createHTTPClient({
   onload: function(e) {
     var json = this.responseText;
@@ -13,11 +15,11 @@ var playerReq = Titanium.Network.createHTTPClient({
     
     players = JSON.parse(json);
     for(var i = 0; i < players.length; i++) {
-      items.push({
-        name: {text: players[i].name.first + " " + players[i].name.last},
-        playerImage: {image: players[i].imageCollection.profileImage},
-        playerType: {text: "Speler"}
-      });
+      var item = {};
+      item.name = {text: players[i].name.first + " " + players[i].name.last};
+      item.playerType = {text: "Speler"};
+      if(players[i].imageCollection.profile) item.image = players[i].imageCollection.profile;
+      items.push(item);
       if(i % 2 === 0) items[i].template = "playerItemEven";
     }
     
@@ -35,11 +37,11 @@ var keeperReq = Titanium.Network.createHTTPClient({
     
     keepers = JSON.parse(json);
     for(var i = 0; i < keepers.length; i++) {
-      items.push({
-        name: {text: keepers[i].name.first + " " + keepers[i].name.last},
-        playerImage: {image: keepers[i].imageCollection.profileImage},
-        playerType: {text: "Keeper"}
-      });
+      var item = {};
+      item.name = {text: keepers[i].name.first + " " + keepers[i].name.last};
+      item.playerType = {text: "Keeper"};
+      if(keepers[i].imageCollection.profile) item.image = keepers[i].imageCollection.profile;
+      items.push(item);
       if(i % 2 === 0) items[i].template = "playerItemEven";
     }
     $.playerList.sections[1].appendItems(items);
@@ -52,6 +54,8 @@ var keeperReq = Titanium.Network.createHTTPClient({
 function showPlayerDetail(e) {
   var player = players[e.itemIndex];
   var keeper = keepers[e.itemIndex];
+  player.teamId = teamId;
+  keeper.teamId = teamId;
   // set the correct review form on a player
   
   // sectionIndex 0 is playersection of list

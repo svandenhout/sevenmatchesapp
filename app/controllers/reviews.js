@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 $.playerName.text = args.name.first + " " + args.name.last;
-$.playerImage.image = args.imageCollection.profileImage;
+$.playerImage.image = args.imageCollection.profile;
 if(args.keeperId) $.playerType.text = "Keeper";
 if(args.formId) $.playerType.text = "Speler";
 
@@ -20,10 +20,11 @@ var reviewsReq = Titanium.Network.createHTTPClient({
       ) / 4;
       
       avg = Math.floor(avg * 100) / 100;
-      
+      var date = new Date(reviews[i].date);
+      var formattedDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
       items.push({
-        date: {text: reviews[i].parseDate},
-        score: {text: avg}
+        date: {text:formattedDate},
+        score: {text: Number(avg).toFixed(1)}
       });
       if(i % 2 !== 0) items[i].template = "reviewsEven";
     };

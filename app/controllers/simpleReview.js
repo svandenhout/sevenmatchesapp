@@ -2,7 +2,7 @@ var args = arguments[0] || {};
 
 var review = {
   reviewForm: args.formId,
-  playerId: args._id,
+  userId: args._id,
   personality: {
     scores: []
   },
@@ -72,6 +72,7 @@ function createReview(e) {
   review.technique.avg = review.technique.scores[0];
   review.physical.avg = review.physical.scores[0];
   review.simple = true;
+  review.teamId = args.teamId;
   review.back = args;
   
   Alloy.createController("sendReview", review).getView("sendReview").open();

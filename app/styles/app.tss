@@ -157,5 +157,5 @@
   top: 10,
   width: "50dp",
   height: "50dp",
-  image: "/images/image-placeholder100x100.png"
+  image: "/image-placeholder100x100.png"
 }
