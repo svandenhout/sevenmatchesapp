@@ -16,9 +16,14 @@ var loginLoad = function(e) {
 
 var loginError = function(e) {
     var json = this.responseText;
-    var response = JSON.parse(json);
-    if(response.email) alert(response.email);
-    if(response.password) alert(response.password);
+    try {
+      var response = JSON.parse(json);
+      if(response.email) alert(response.email);
+      if(response.password) alert(response.password);
+    }catch(e) {
+      alert(json);
+    }
+
     this.abort();
 };
 

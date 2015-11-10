@@ -2,10 +2,10 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>nl.sevenmatches.TrainersApp</id>
     <name>SevenMatches</name>
-    <version>1.08</version>
+    <version>1.09</version>
     <publisher>SevenMatches BV</publisher>
     <url>http://sevenmatches.com</url>
-    <description>updated api calls</description>
+    <description>bugfixes</description>
     <copyright>2014 by SevenMatches</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
@@ -39,7 +39,7 @@
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="108" android:versionName="1.0.8"/>
+        <manifest android:versionCode="109" android:versionName="1.0.9"/>
     </android>
     <mobileweb>
         <precache/>
@@ -57,7 +57,7 @@
         <target device="iphone">true</target>
         <target device="mobileweb">false</target>
     </deployment-targets>
-    <sdk-version>4.1.0.GA</sdk-version>
+    <sdk-version>5.0.2.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

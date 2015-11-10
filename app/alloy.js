@@ -16,11 +16,7 @@ Alloy.Globals.logOut = function(e) {
   Alloy.createController("login").getView("login").open();
 };
 
-if(Titanium.Platform.model === "Simulator1") {
-  Alloy.Globals.url = "http://localhost:4000";
-}else {
-  Alloy.Globals.url = "https://api.sevenmatches.com";
-}
+Alloy.Globals.url = "https://api.sevenmatches.com";
 
 if(Alloy.Globals.token !== "false") {
   Alloy.Globals.authHeader = Alloy.Globals.token;

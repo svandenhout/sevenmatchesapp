@@ -18,7 +18,8 @@ var playerReq = Titanium.Network.createHTTPClient({
       var item = {};
       item.name = {text: players[i].name.first + " " + players[i].name.last};
       item.playerType = {text: "Speler"};
-      if(players[i].imageCollection.profile) item.image = players[i].imageCollection.profile;
+      if(players[i].imageCollection.profile) 
+          item.image = players[i].imageCollection.profile;
       items.push(item);
       if(i % 2 === 0) items[i].template = "playerItemEven";
     }
