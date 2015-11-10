@@ -16,7 +16,7 @@ Alloy.Globals.logOut = function(e) {
   Alloy.createController("login").getView("login").open();
 };
 
-Alloy.Globals.url = "https://api.sevenmatches.com";
+Alloy.Globals.url = "http://api.sevenmatches.com";
 
 if(Alloy.Globals.token !== "false") {
   Alloy.Globals.authHeader = Alloy.Globals.token;
